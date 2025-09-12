@@ -1,0 +1,41 @@
+CAN	 Canada	
+MEX	 Mexico	
+USA	 United States
+BLZ	 Belize	
+CRC	 Costa Rica	
+SLV	 El Salvador	
+GUA	 Guatemala	
+HON	 Honduras	
+NCA	 Nicaragua	
+PAN	 Panama
+AIA	 Anguilla	
+ATG	 Antigua and Barbuda	
+ARU	 Aruba	
+BAH	 Bahamas	
+BRB	 Barbados	
+BER	 Bermuda	
+BOE	 Bonaire 	
+VGB	 British Virgin Islands	
+CAY	 Cayman Islands	
+CUB	 Cuba	
+CUW	 Curaçao	
+DMA	 Dominica	
+DOM	 Dominican Republic	
+GUF	 French Guiana 	
+GRN	 Grenada	
+GLP	 Guadeloupe 	
+GUY	 Guyana
+HAI	 Haiti	
+JAM	 Jamaica	
+MTQ	 Martinique 	
+MSR	 Montserrat	
+PUR	 Puerto Rico	
+SKN	 Saint Kitts and Nevis	
+LCA	 Saint Lucia	
+SMN	 Saint Martin 	
+VIN	 Saint Vincent and the Grenadines
+SMA	 Sint Maarten 
+SUR	 Suriname
+TRI	 Trinidad and Tobago
+TCA	 Turks and Caicos Islands
+VIR	 U.S. Virgin Islands	

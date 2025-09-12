@@ -1,0 +1,10 @@
+ARG	 Argentina
+BOL	 Bolivia
+BRA	 Brazil
+CHI	 Chile
+COL	 Colombia
+ECU	 Ecuador
+PAR	 Paraguay
+PER	 Peru
+URU	 Uruguay
+VEN	 Venezuela

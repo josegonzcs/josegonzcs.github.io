@@ -1,0 +1,54 @@
+ALG	 Algeria	
+EGY	 Egypt
+LBY	 Libya	
+MAR	 Morocco	
+TUN	 Tunisia	
+BEN	 Benin	
+BFA	 Burkina Faso	
+CPV	 Cape Verde	
+GAM	 Gambia	
+GHA	 Ghana	
+GUI	 Guinea	
+GNB	 Guinea-Bissau	
+CIV	 Ivory Coast	
+LBR	 Liberia	
+MLI	 Mali	
+MTN	 Mauritania	
+NIG	 Niger	
+NGA	 Nigeria	
+SEN	 Senegal	
+SLE	 Sierra Leone	
+TOG	 Togo	
+CMR	 Cameroon	
+CTA	 Central African Republic	
+CHA	 Chad	
+CGO	 Congo	
+COD	 DR Congo	
+EQG	 Equatorial Guinea	
+GAB	 Gabon	
+STP	 São Tomé and Príncipe
+BDI	 Burundi	
+DJI	 Djibouti	
+ERI	 Eritrea	
+ETH	 Ethiopia
+KEN	 Kenya
+RWA	 Rwanda
+SOM	 Somalia
+SSD	 South Sudan
+SDN	 Sudan
+TAN	 Tanzania
+UGA	 Uganda
+ZAN	 Zanzibar
+ANG	 Angola
+BOT	 Botswana
+COM	 Comoros
+SWZ	 Eswatini
+LES	 Lesotho
+MAD	 Madagascar
+MWI	 Malawi
+MRI	 Mauritius
+MOZ	 Mozambique
+NAM	 Namibia
+SEY	 Seychelles
+ZAM	 Zambia
+ZIM	 Zimbabwe	
