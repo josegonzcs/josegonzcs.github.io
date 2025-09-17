@@ -11,7 +11,8 @@ for line in file:
     rating = file.readline().strip().split('\t')[0]
     rankings.append([rank, country, rating])
 
-# print(rankings)
+for rank, country, rating in rankings:
+    print(rank, country, rating)
 
 
 
@@ -19,12 +20,53 @@ for line in file:
 
 file.close()
 
-file = open("ofc.txt", "r")
 
-test = []
+countries = []
 
-for line in file:
-    t = line.strip().split('\t')
-    test.append(t)
+confederations = ["conmebol", "concacaf", "caf", "uefa", "afc", "ofc"]
 
-print(test)
+
+for confederation in confederations:
+    filename = confederation + ".txt"
+    file = open(filename, "r")
+    for line in file:
+        # print(line.strip().split(None, 1))
+        code = line.strip().split(None, 1)[0]
+        name = line.strip().split(None, 1)[1]
+        countries.append([code, name, confederation.upper()])
+
+for code, country, confederation in countries:
+    print(code, country, confederation)
+
+
+for i in range(len(rankings)):
+    for j in range(len(countries)):
+        if rankings[i][1] == countries[j][1]:
+            rankings[i].append(countries[j][0])
+            rankings[i].append(countries[j][2])
+
+for rank, country, rating, code, confederation in rankings:
+    print(rank, rating, code, confederation, country)
+ 
+
+qualified_teams = ["AUS",
+                   "IRN",
+                   "JPN",
+                   "JOR",
+                   "KOR",
+                   "UZB",
+                   "MAR",
+                   "TUN",
+                   "CAN",
+                   "MEX",
+                   "USA",
+                   "ARG",
+                   "BRA",
+                   "COL",
+                   "ECU",
+                   "PAR",
+                   "URU",
+                   "NZL"]
+
+as_it_stands_teams = ["Slovakia", "Switzerland", "Denmark", "France", "Portugal", "Spain", "Netherlands", "Bosnia and Herzegovina", "Norway", "North Macedonia", "England", "Croatia", #UEFA 
+                      ]

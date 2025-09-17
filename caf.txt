@@ -26,7 +26,7 @@ CGO	 Congo
 COD	 DR Congo	
 EQG	 Equatorial Guinea	
 GAB	 Gabon	
-STP	 São Tomé and Príncipe
+STP	 Sao Tome and Principe
 BDI	 Burundi	
 DJI	 Djibouti	
 ERI	 Eritrea	
@@ -51,4 +51,5 @@ MOZ	 Mozambique
 NAM	 Namibia
 SEY	 Seychelles
 ZAM	 Zambia
-ZIM	 Zimbabwe	
+ZIM	 Zimbabwe
+RSA  South Africa

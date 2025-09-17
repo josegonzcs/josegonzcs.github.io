@@ -20,10 +20,10 @@ CHN	China
 TPE	Chinese Taipei
 PRK	North Korea
 GUM	Guam
-HKG	Hong Kong, China
+HKG	Hong Kong
 JPN	Japan
 KOR	South Korea
-MAC	Macau
+MAC	Macao
 MNG	Mongolia
 NMI	Northern Mariana Islands
 BAN	Bangladesh
@@ -43,5 +43,5 @@ PLE	Palestine
 QAT	Qatar
 KSA	Saudi Arabia
 SYR	Syria
-UAE	United Arab Emirates
+UAE	UAE
 YEM	Yemen

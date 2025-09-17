@@ -1,6 +1,6 @@
 CAN	 Canada	
 MEX	 Mexico	
-USA	 United States
+USA	 USA
 BLZ	 Belize	
 CRC	 Costa Rica	
 SLV	 El Salvador	
@@ -18,7 +18,7 @@ BOE	 Bonaire
 VGB	 British Virgin Islands	
 CAY	 Cayman Islands	
 CUB	 Cuba	
-CUW	 Curaçao	
+CUW	 Curacao	
 DMA	 Dominica	
 DOM	 Dominican Republic	
 GUF	 French Guiana 	
@@ -33,9 +33,10 @@ PUR	 Puerto Rico
 SKN	 Saint Kitts and Nevis	
 LCA	 Saint Lucia	
 SMN	 Saint Martin 	
-VIN	 Saint Vincent and the Grenadines
+VIN	 Saint Vincent and The Grenadines
 SMA	 Sint Maarten 
 SUR	 Suriname
 TRI	 Trinidad and Tobago
 TCA	 Turks and Caicos Islands
-VIR	 U.S. Virgin Islands	
+VIR	 U.S. Virgin Islands
+SKN  St. Kitts and Nevis	

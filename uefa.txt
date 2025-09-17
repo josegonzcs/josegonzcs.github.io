@@ -9,7 +9,7 @@ BIH  Bosnia and Herzegovina
 BUL  Bulgaria
 CRO  Croatia
 CYP  Cyprus
-CZE  Czech Republic
+CZE  Czechia
 DEN  Denmark
 ENG  England
 EST  Estonia
@@ -39,7 +39,7 @@ NIR  Northern Ireland
 NOR  Norway
 POL  Poland
 POR  Portugal
-IRL  Republic of Ireland
+IRL  Ireland
 ROU  Romania
 RUS  Russia
 SMR  San Marino
@@ -50,6 +50,6 @@ SVN  Slovenia
 ESP  Spain
 SWE  Sweden
 SUI  Switzerland
-TUR  Turkey
+TUR  Turkiye
 UKR  Ukraine
 WAL  Wales
