@@ -106,6 +106,8 @@ conmebol_qualified_teams = ["Argentina", "Ecuador", "Colombia", "Uruguay", "Braz
 
 conmebol_inter_confederation_team = ["Bolivia"]
 
+conmebol_inter_confederation_team = addCodeAndRankToList(conmebol_inter_confederation_team, rankings)
+
 #######
 # OFC #  QUALIFICATIONS ARE FINISHED
 #######
@@ -113,6 +115,8 @@ conmebol_inter_confederation_team = ["Bolivia"]
 ofc_qualified_team = ["New Zealand"]
 
 ofc_inter_confederation_team = ["New Caledonia"]
+
+ofc_inter_confederation_team = addCodeAndRankToList(ofc_inter_confederation_team, rankings)
 
 ########
 # UEFA #
@@ -170,14 +174,107 @@ uefa_playoff_teams = list(uefa_runner_ups + remaining_nations_league_group_winne
 
 uefa_remaining_qualified_teams = decidePlayoffWinners(uefa_playoff_teams, rankings, 4)
 
-current_qualified_teams = list(hosts + afc_qualified_teams + afc_current_group_winners + caf_group_winners + concacaf_group_winners + conmebol_qualified_teams + ofc_qualified_team + uefa_group_winners)
+current_qualified_teams = list(afc_qualified_teams + afc_current_group_winners + caf_group_winners + concacaf_group_winners + conmebol_qualified_teams + ofc_qualified_team + uefa_group_winners)
 
 current_qualified_teams = addCodeAndRankToList(current_qualified_teams, rankings)
 
-current_qualified_teams = list(current_qualified_teams + uefa_remaining_qualified_teams)
+current_qualified_teams = sortList(current_qualified_teams, 0)
 
-inter_confederation_playoff_teams = decidePlayoffWinners(list(afc_inter_confederation_team + caf_inter_confederation_team + concacaf_inter_confederation_teams + conmebol_inter_confederation_team+ ofc_inter_confederation_team), rankings, 2)
+hosts = addCodeAndRankToList(hosts, rankings)
 
-world_cup_teams = list(current_qualified_teams + inter_confederation_playoff_teams)
+inter_confederation_playoff_teams = sortList(list(afc_inter_confederation_team + caf_inter_confederation_team + concacaf_inter_confederation_teams + conmebol_inter_confederation_team + ofc_inter_confederation_team), 0)[0:2]
+
+print(inter_confederation_playoff_teams)
+
+world_cup_teams = list(hosts + current_qualified_teams + uefa_remaining_qualified_teams + inter_confederation_playoff_teams)
 print(len(world_cup_teams))
 printList(world_cup_teams)
+
+
+
+
+################################
+# WORLD CUP GROUP DRAW PROCESS #
+################################
+
+# SPLIT 48 TEAMS INTO 4 POTS
+# POT 1 - 3 HOSTS + TOP 9 RATED TEAMS
+# POT 2 - NEXT TOP 12 RATED TEAMS
+# POT 3 - NEXT TOP 12 RATED TEAMS
+# POT 4 - NEXT TOP 6 RATED TEAMS + 4 UEFA PLAYOFF TEAMS + 2 INTER-CONFEDERATION PLAYOFF TEAMS 
+
+pot_1 = world_cup_teams[0:12]
+pot_2 = world_cup_teams[12:24]
+pot_3 = world_cup_teams[24:36]
+pot_4 = world_cup_teams[36:48]
+
+print("POT 1")
+printList(pot_1)
+print("POT 2")
+printList(pot_2)
+print("POT 3")
+printList(pot_3)
+print("POT 4")
+printList(pot_4)
+
+
+group_A = []
+group_B = []
+group_C = []
+group_D = []
+group_E = []
+group_F = []
+group_G = []
+group_H = []
+group_I = []
+group_J = []
+group_K = []
+group_L = []
+
+groups = [group_A,
+          group_B,
+          group_C,
+          group_D,
+          group_E,
+          group_F,
+          group_G,
+          group_H,
+          group_I,
+          group_J,
+          group_K,
+          group_L]
+
+group_A.append(pot_1[1]) # Add Mexico to Group A
+group_B.append(pot_1[0]) # Add Canada to Group B
+group_D.append(pot_1[2]) # Add USA to Group D
+
+print(len(pot_1))
+printList(pot_1)
+pot_1 = pot_1[3:]
+
+print(len(pot_1))
+printList(pot_1)
+
+print(group_A)
+print(group_B)
+print(group_D)
+
+
+
+import random
+
+# Draw POT 1 into their groups
+
+for ix in range(len(pot_1)):
+    # randomly select a team from pot 1
+    team = random.choice(pot_1)
+    # then randomly add it to a group that is empty 
+    while True:
+        group = random.choice(groups)
+        if group == []:
+            group.append(team)
+            break
+    pot_1.remove(team)
+
+# Draw POT 2 into groups, make sure there are NOT 2 teams from the same confederation (rule doesn't apply to UEFA teams)
+
