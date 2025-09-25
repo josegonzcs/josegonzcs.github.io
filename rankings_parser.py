@@ -184,7 +184,11 @@ hosts = addCodeAndRankToList(hosts, rankings)
 
 inter_confederation_playoff_teams = sortList(list(afc_inter_confederation_team + caf_inter_confederation_team + concacaf_inter_confederation_teams + conmebol_inter_confederation_team + ofc_inter_confederation_team), 0)[0:2]
 
-print(inter_confederation_playoff_teams)
+inter_confederation_playoff_teams[0][3] = "INTER"
+inter_confederation_playoff_teams[1][3] = "INTER"
+
+
+print("INTER", inter_confederation_playoff_teams)
 
 world_cup_teams = list(hosts + current_qualified_teams + uefa_remaining_qualified_teams + inter_confederation_playoff_teams)
 print(len(world_cup_teams))
@@ -216,6 +220,7 @@ print("POT 3")
 printList(pot_3)
 print("POT 4")
 printList(pot_4)
+print(len(pot_4))
 
 
 group_A = []
@@ -261,7 +266,96 @@ print(group_D)
 
 
 
+def checkGroupAvailability(confederation_in_question, group_in_question, max_amount_of_teams):
+    if len(group_in_question) >= max_amount_of_teams:
+        return False
+    group_confederations = []
+    for rank, ranking, code, confederation, name in group_in_question:
+        group_confederations.append(confederation)
+    for confederation in group_confederations:
+        if confederation_in_question == confederation:
+            if confederation == 'UEFA':
+                return True
+            else:
+                return False
+    return True
+
+
 import random
+# Following the 2022 World Cup draw process I will go through the groups in alphabetical order and random draw a team
+# If a team from the same confederation is already in the chosen group I will move on to the next group until a group is found
+
+# POT 1
+
+# go down the list of groups
+for index in range(len(groups)):
+    cur_group = groups[index]
+    if cur_group == []:
+        # select random team from pot 1
+        team = random.choice(pot_1)
+        cur_group.append(team)
+        pot_1.remove(team)
+
+# POT 2
+
+# go down the list of teams 
+for count in range(len(pot_2)):
+    # select random team in pot 2
+    team = random.choice(pot_2)
+    # then find a group for the team with no other team from the same conference except for UEFA teams
+    for index in range(len(groups)):
+        cur_group = groups[index]
+        if checkGroupAvailability(team[3], cur_group, 2):
+            cur_group.append(team)
+            pot_2.remove(team)
+            break
+
+# POT 3
+
+# go down the list of teams in pot 3
+while len(pot_3) > 0:
+    # select random team
+    team = random.choice(pot_3)
+    # find a group that works
+    for index in range(len(groups)):
+        cur_group = groups[index]
+        if checkGroupAvailability(team[3], cur_group, 3):
+            cur_group.append(team)
+            pot_3.remove(team)
+            break
+
+
+#############
+# TODO : At times, usually when there is one team left from the pot, the last group is not available because of the double confederation rule. This may happen in the actual draw so I'm
+# thinking FIFA might go down the list of groups that have already been drawn and replace a team that was in the same pot as the remaining team until all teams are placed in a group
+# Im curious to see what FIFA has planned in case such scenario happens. Might have to do more research and see if it's happened before.
+###############
+
+# POT 4
+
+# go down the list of teams in pot 4
+while len(pot_4) > 0:
+    # select random team
+    team = random.choice(pot_4)
+    # find a group that works
+    for index in range(len(groups)):
+        cur_group = groups[index]
+        if checkGroupAvailability(team[3], cur_group, 4):
+            cur_group.append(team)
+            pot_4.remove(team)
+            break
+
+
+for group in groups:
+    print("GROUP")
+    printList(group)
+
+
+
+
+
+'''
+Randomly selecting team and group
 
 # Draw POT 1 into their groups
 
@@ -278,3 +372,76 @@ for ix in range(len(pot_1)):
 
 # Draw POT 2 into groups, make sure there are NOT 2 teams from the same confederation (rule doesn't apply to UEFA teams)
 
+def checkGroupAvailability(confederation_in_question, group_in_question, max_amount_of_teams):
+    if len(group_in_question) >= max_amount_of_teams:
+        return False
+    group_confederations = []
+    for rank, ranking, code, confederation, name in group_in_question:
+        group_confederations.append(confederation)
+    for confederation in group_confederations:
+        if confederation_in_question == confederation:
+            if confederation == 'UEFA':
+                return True
+            else:
+                return False
+    return True
+
+
+for ix in range(len(pot_2)):
+    team = random.choice(pot_2)
+    confederation = team[3]
+    while True:
+        group = random.choice(groups)
+        if checkGroupAvailability(confederation, group, 2):
+            group.append(team)
+            break
+    pot_2.remove(team)
+
+print("pot 2", pot_2)
+printList(groups)
+
+
+# Draw POT 3 into groups, make sure there are NOT 2 teams from the same confederation (rule doesn't apply to UEFA teams)
+
+for ix in range(len(pot_3)):
+    team = random.choice(pot_3)
+    confederation = team[3]
+    while True:
+        group = random.choice(groups)
+        if checkGroupAvailability(confederation, group, 3):
+            group.append(team)
+            break
+    pot_3.remove(team)
+
+printList(groups)
+
+# Draw POT 4 into groups, make sure there are NOT 2 teams from the same confederation (rule doesn't apply to UEFA teams)
+
+
+for ix in range(len(pot_4)):
+    team = random.choice(pot_4)
+    confederation = team[3]
+    while True:
+        group = random.choice(groups)
+        if checkGroupAvailability(confederation, group, 4):
+            group.append(team)
+            break
+    pot_4.remove(team)
+
+printList(groups)
+
+Working Example of World Cup Groups
+
+Mexico      South Korea  North Macedonia  Cape Verde           
+Canada      Denmark      Tunisia          New Zealand
+Spain       Egypt        Jordan           Austria
+USA         Ecuador      Algeria          Saudi Arabia
+England     Uruguay      Ivory Coast      Italy
+Morocco     Colombia     Uzbekistan       Jamaica
+Brazil      Japan        Honduras         Bosnia and Herzegovina
+Croatia     Norway       Iraq             Germany
+Portugal    Switzerland  Slovakia         Belgium
+Netherlands Australia    South Africa     Suriname
+France      Iran         Paraguay         Ghana
+Argentina   Senegal      Qatar            Costa Rica
+'''
