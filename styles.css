@@ -1,18 +1,45 @@
 html, body{
     height: 100%;
     margin: 0;
-    /* background-color: black; */
+    background-color: black;
+}
+
+.groupstage-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.groupstage-container.row{
+  flex-direction: row;
 }
 
 .group-container{
     display: flex;
-    height: 500px;
-    width: 500px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: gray;
+    padding: 1vh;
+    margin: 1vh;
+    width: fit-content;
+    height: fit-content;
 }
 
 .team{
-    height: 100px;
-    width: 400px;
+    height: 6vh;
+    width: 18vh;
+    margin: 0.5vh;
     background-color: white;
+    cursor: move;
+}
+
+.flag{
+  height: 100%;
+}
+
+
+.team.dragging{
+  opacity: 50%;
 }
