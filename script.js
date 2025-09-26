@@ -3,7 +3,7 @@
 
 var groups = document.querySelectorAll(".group-container")
 var teams = document.querySelectorAll(".team")
-
+var codes = document.querySelectorAll(".code")
 
 groups.forEach(group => {
   group.addEventListener("dragover", e => {
@@ -34,6 +34,12 @@ teams.forEach(team => {
 })
 
 
+
+codes.forEach(code => {
+  code.textContent = code.getAttribute("value")
+})
+
+
 function getDragAfterElement(group, y){
   const otherTeams = [...group.querySelectorAll(".team:not(.dragging)")]
 
@@ -48,3 +54,10 @@ function getDragAfterElement(group, y){
     }
   }, {offset: Number.NEGATIVE_INFINITY}).element
 }
+
+
+
+var group_A = groups[0]
+console.log(group_A.children[0])
+// grab the top 2 from every group for the knockout stage
+// grab the 3rd from every group to add to table of 3rd place teams

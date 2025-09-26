@@ -47,3 +47,40 @@ for rank, country, ranking in rankings:
             
 for rank, ranking, code, confederation, country in new_rankings: 
     print(rank, ranking, code, confederation, country)
+
+import os
+
+contents = os.listdir("svg")
+
+file = open("data.csv")
+
+isos = {}
+
+for line in file:
+    name = line[:-4]
+    iso = line[-3:-1].lower()
+    print(iso)
+    isos[iso] = name
+
+file.close()
+
+for item in isos:
+    print(item, isos[item])
+
+for rank, ranking, code, confederation, country in new_rankings: 
+    for file in contents:
+        filename = file
+        print("filename = ", filename)
+        try:
+            if isos[file[:-4]] == country:
+                print(file[:-4])
+                newfilename = code + ".svg"
+                try:
+                    os.rename(filename, newfilename)
+                    print(filename, " renamed to ", newfilename)
+                except:
+                    pass
+
+        except:
+            pass
+        
