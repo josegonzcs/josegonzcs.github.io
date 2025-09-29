@@ -14,8 +14,8 @@ for line in file:
     rating = file.readline().strip().split('\t')[0]
     rankings.append([rank, country, rating])
 
-for rank, country, rating in rankings:
-    print(rank, country, rating)
+# for rank, country, rating in rankings:
+#     print(rank, country, rating)
 
 file.close()
 
@@ -33,8 +33,8 @@ for line in old:
 
 file.close()
 
-for rank, ranking, code, confederation, country in old_rankings:
-    print(rank, ranking, code, confederation, country)
+# for rank, ranking, code, confederation, country in old_rankings:
+#     print(rank, ranking, code, confederation, country)
 
 new_rankings = [] 
 
@@ -45,12 +45,12 @@ for rank, country, ranking in rankings:
 
 # COPY OUTPUT FROM FOR LOOP BELOW AND SAVE IN A TEXT FILE
             
-for rank, ranking, code, confederation, country in new_rankings: 
-    print(rank, ranking, code, confederation, country)
+# for rank, ranking, code, confederation, country in new_rankings: 
+#     print(rank, ranking, code, confederation, country)
 
 import os
 
-contents = os.listdir("svg")
+contents = os.listdir("png")
 
 file = open("data.csv")
 
@@ -59,27 +59,30 @@ isos = {}
 for line in file:
     name = line[:-4]
     iso = line[-3:-1].lower()
-    print(iso)
+    # print(iso)
     isos[iso] = name
 
 file.close()
 
-for item in isos:
-    print(item, isos[item])
+# for item in isos:
+#     print(item, isos[item])
 
 for rank, ranking, code, confederation, country in new_rankings: 
+    # print(country)
     for file in contents:
-        filename = file
-        print("filename = ", filename)
+        filename = "png/" + file
+        # print(filename)
+        # print("filename = ", filename)
         try:
+            # print(isos[file[:-4]])
             if isos[file[:-4]] == country:
-                print(file[:-4])
-                newfilename = code + ".svg"
+                newfilename = code + ".png"
+                # print("newfilename = ", newfilename)
                 try:
                     os.rename(filename, newfilename)
-                    print(filename, " renamed to ", newfilename)
-                except:
-                    pass
+                    # print(filename, " renamed to ", newfilename)
+                except OSError as err:
+                    print(err)
 
         except:
             pass

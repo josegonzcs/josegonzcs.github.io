@@ -4,6 +4,7 @@
 var groups = document.querySelectorAll(".group-container")
 var teams = document.querySelectorAll(".team")
 var codes = document.querySelectorAll(".code")
+var flags = document.querySelectorAll(".flag")
 
 groups.forEach(group => {
   group.addEventListener("dragover", e => {
@@ -55,7 +56,29 @@ function getDragAfterElement(group, y){
   }, {offset: Number.NEGATIVE_INFINITY}).element
 }
 
+async function changeFlagImage(element){
+  var placeholder_flag = "images/placeholder_flag.png";
+  var file = element.previousElementSibling.getAttribute("value")
+  file = "png/" + file + ".png"
+  
+  try {
+    const response = await fetch(file)
+    
+    if (!response.ok){
+      element.src = placeholder_flag
+    } else {
+      element.src = file
+    }
+  } 
+  catch(err) {
+  }
+}
 
+
+
+flags.forEach(flag => {
+  changeFlagImage(flag)
+})
 
 var group_A = groups[0]
 console.log(group_A.children[0])
