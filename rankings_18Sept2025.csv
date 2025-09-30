@@ -1,0 +1,210 @@
+1, 1875, ESP, UEFA, Spain
+2, 1871, FRA, UEFA, France
+3, 1870, ARG, CONMEBOL, Argentina
+4, 1820, ENG, UEFA, England
+5, 1780, POR, UEFA, Portugal
+6, 1762, BRA, CONMEBOL, Brazil
+7, 1754, NED, UEFA, Netherlands
+8, 1740, BEL, UEFA, Belgium
+9, 1714, CRO, UEFA, Croatia
+10, 1710, ITA, UEFA, Italy
+11, 1706, MAR, CAF, Morocco
+12, 1704, GER, UEFA, Germany
+13, 1692, COL, CONMEBOL, Colombia
+14, 1688, MEX, CONCACAF, Mexico
+15, 1674, URU, CONMEBOL, Uruguay
+16, 1670, USA, CONCACAF, USA
+17, 1648, SUI, UEFA, Switzerland
+18, 1645, SEN, CAF, Senegal
+19, 1640, JPN, AFC, Japan
+20, 1628, DEN, UEFA, Denmark
+21, 1623, IRN, AFC, Iran
+22, 1602, AUT, UEFA, Austria
+23, 1593, KOR, AFC, South Korea
+24, 1588, ECU, CONMEBOL, Ecuador
+25, 1583, AUS, AFC, Australia
+26, 1558, CAN, CONCACAF, Canada
+27, 1556, TUR, UEFA, Turkiye
+28, 1543, UKR, UEFA, Ukraine
+29, 1530, PAN, CONCACAF, Panama
+30, 1529, WAL, UEFA, Wales
+31, 1526, NOR, UEFA, Norway
+32, 1525, SWE, UEFA, Sweden
+33, 1522, RUS, UEFA, Russia
+34, 1521, SRB, UEFA, Serbia
+35, 1519, EGY, CAF, Egypt
+36, 1517, POL, UEFA, Poland
+37, 1501, PAR, CONMEBOL, Paraguay
+38, 1501, ALG, CAF, Algeria
+39, 1500, CZE, UEFA, Czechia
+40, 1495, GRE, UEFA, Greece
+41, 1492, HUN, UEFA, Hungary
+42, 1492, SVK, UEFA, Slovakia
+43, 1485, SCO, UEFA, Scotland
+44, 1484, CIV, CAF, Ivory Coast
+45, 1484, NGA, CAF, Nigeria
+46, 1483, TUN, CAF, Tunisia
+47, 1481, CRC, CONCACAF, Costa Rica
+48, 1469, PER, CONMEBOL, Peru
+49, 1465, VEN, CONMEBOL, Venezuela
+50, 1463, SVN, UEFA, Slovenia
+51, 1463, ROU, UEFA, Romania
+52, 1455, CMR, CAF, Cameroon
+53, 1454, QAT, AFC, Qatar
+54, 1453, UZB, AFC, Uzbekistan
+55, 1449, RSA, CAF, South Africa
+56, 1446, MLI, CAF, Mali
+57, 1442, CHI, CONMEBOL, Chile
+58, 1422, IRQ, AFC, Iraq
+59, 1421, KSA, AFC, Saudi Arabia
+60, 1408, COD, CAF, DR Congo
+61, 1398, IRL, UEFA, Ireland
+62, 1391, JOR, AFC, Jordan
+63, 1389, MKD, UEFA, North Macedonia
+64, 1385, BFA, CAF, Burkina Faso
+65, 1384, HON, CONCACAF, Honduras
+66, 1381, ALB, UEFA, Albania
+67, 1380, UAE, AFC, UAE
+68, 1377, GEO, UEFA, Georgia
+69, 1377, JAM, CONCACAF, Jamaica
+70, 1363, CPV, CAF, Cape Verde
+71, 1359, FIN, UEFA, Finland
+72, 1356, NIR, UEFA, Northern Ireland
+73, 1344, BIH, UEFA, Bosnia and Herzegovina
+74, 1343, ISL, UEFA, Iceland
+75, 1341, GHA, CAF, Ghana
+76, 1337, ISR, UEFA, Israel
+77, 1332, BOL, CONMEBOL, Bolivia
+78, 1320, OMA, AFC, Oman
+79, 1314, GAB, CAF, Gabon
+80, 1314, MNE, UEFA, Montenegro
+81, 1299, GUI, CAF, Guinea
+82, 1288, UGA, CAF, Uganda
+83, 1284, NZL, OFC, New Zealand
+84, 1282, CUW, CONCACAF, Curacao
+85, 1273, ZAM, CAF, Zambia
+86, 1272, BUL, UEFA, Bulgaria
+87, 1269, HAI, CONCACAF, Haiti
+88, 1269, BHR, AFC, Bahrain
+89, 1269, ANG, CAF, Angola
+90, 1268, SLV, CONCACAF, El Salvador
+91, 1262, KOS, UEFA, Kosovo
+92, 1259, SYR, AFC, Syria
+93, 1257, BEN, CAF, Benin
+94, 1249, CHN, AFC, China
+95, 1249, EQG, CAF, Equatorial Guinea
+96, 1243, LUX, UEFA, Luxembourg
+97, 1234, MOZ, CAF, Mozambique
+98, 1231, GUA, CONCACAF, Guatemala
+99, 1231, PLE, AFC, Palestine
+100, 1224, BLR, UEFA, Belarus
+101, 1222, THA, AFC, Thailand
+102, 1221, TRI, CONCACAF, Trinidad and Tobago
+103, 1220, ARM, UEFA, Armenia
+104, 1206, TJK, AFC, Tajikistan
+105, 1202, COM, CAF, Comoros
+106, 1201, KGZ, AFC, Kyrgyzstan
+107, 1199, TAN, CAF, Tanzania
+108, 1188, MAD, CAF, Madagascar
+109, 1184, NAM, CAF, Namibia
+110, 1183, MTN, CAF, Mauritania
+111, 1182, KEN, CAF, Kenya
+112, 1180, LBY, CAF, Libya
+113, 1172, LBN, AFC, Lebanon
+114, 1170, VIE, AFC, Vietnam
+115, 1166, GAM, CAF, Gambia
+116, 1164, SDN, CAF, Sudan
+117, 1160, NIG, CAF, Niger
+118, 1158, KAZ, UEFA, Kazakhstan
+119, 1158, IDN, AFC, Indonesia
+120, 1151, TOG, CAF, Togo
+121, 1151, PRK, AFC, North Korea
+122, 1150, SLE, CAF, Sierra Leone
+123, 1148, MAS, AFC, Malaysia
+124, 1148, AZE, UEFA, Azerbaijan
+125, 1134, ZIM, CAF, Zimbabwe
+126, 1134, MWI, CAF, Malawi
+127, 1134, RWA, CAF, Rwanda
+128, 1128, CYP, UEFA, Cyprus
+129, 1127, EST, UEFA, Estonia
+130, 1127, GNB, CAF, Guinea-Bissau
+131, 1125, SUR, CONCACAF, Suriname
+132, 1121, NCA, CONCACAF, Nicaragua
+133, 1120, CGO, CAF, Congo
+134, 1114, IND, AFC, India
+135, 1100, KUW, AFC, Kuwait
+136, 1094, FRO, UEFA, Faroe Islands
+137, 1089, LVA, UEFA, Latvia
+138, 1088, TKM, AFC, Turkmenistan
+139, 1087, BOT, CAF, Botswana
+140, 1081, CTA, CAF, Central African Republic
+141, 1077, BDI, CAF, Burundi
+142, 1074, DOM, CONCACAF, Dominican Republic
+143, 1066, PHI, AFC, Philippines
+144, 1066, LBR, CAF, Liberia
+145, 1065, LTU, UEFA, Lithuania
+146, 1047, HKG, AFC, Hong Kong
+147, 1046, ETH, CAF, Ethiopia
+148, 1046, SOL, OFC, Solomon Islands
+149, 1042, SKN, CONCACAF, St. Kitts and Nevis
+150, 1040, NCL, OFC, New Caledonia
+151, 1037, GUY, CONCACAF, Guyana
+152, 1035, FIJ, OFC, Fiji
+153, 1034, LES, CAF, Lesotho
+154, 1021, YEM, AFC, Yemen
+155, 1020, PUR, CONCACAF, Puerto Rico
+156, 1019, MDA, UEFA, Moldova
+157, 1019, TAH, OFC, Tahiti
+158, 1013, SGP, AFC, Singapore
+159, 1010, SWZ, CAF, Eswatini
+160, 1004, MYA, AFC, Myanmar
+161, 999, AFG, AFC, Afghanistan
+162, 992, ATG, CONCACAF, Antigua and Barbuda
+163, 992, VAN, OFC, Vanuatu
+164, 991, LCA, CONCACAF, Saint Lucia
+165, 989, BER, CONCACAF, Bermuda
+166, 982, MLT, UEFA, Malta
+167, 980, CUB, CONCACAF, Cuba
+168, 978, GRN, CONCACAF, Grenada
+169, 977, SSD, CAF, South Sudan
+170, 969, PNG, OFC, Papua New Guinea
+171, 969, MDV, AFC, Maldives
+172, 962, VIN, CONCACAF, Saint Vincent and The Grenadines
+173, 961, TPE, AFC, Chinese Taipei
+174, 955, AND, UEFA, Andorra
+175, 926, CHA, CAF, Chad
+176, 923, NEP, AFC, Nepal
+177, 920, BRB, CONCACAF, Barbados
+178, 917, MSR, CONCACAF, Montserrat
+179, 912, MRI, CAF, Mauritius
+180, 910, CAM, AFC, Cambodia
+181, 904, BLZ, CONCACAF, Belize
+182, 901, DMA, CONCACAF, Dominica
+183, 901, BRU, AFC, Brunei
+184, 899, BAN, AFC, Bangladesh
+185, 890, LAO, AFC, Laos
+186, 889, BHU, AFC, Bhutan
+187, 883, ASA, OFC, American Samoa
+188, 880, MNG, AFC, Mongolia
+189, 878, COK, OFC, Cook Islands
+190, 876, SAM, OFC, Samoa
+191, 865, MAC, AFC, Macao
+192, 861, ARU, CONCACAF, Aruba
+193, 856, DJI, CAF, Djibouti
+194, 855, TLS, AFC, Timor-Leste
+195, 855, STP, CAF, Sao Tome and Principe
+196, 853, CAY, CONCACAF, Cayman Islands
+197, 852, SRI, AFC, Sri Lanka
+198, 836, TGA, OFC, Tonga
+199, 829, PAK, AFC, Pakistan
+200, 827, GIB, UEFA, Gibraltar
+201, 825, SOM, CAF, Somalia
+202, 823, GUM, AFC, Guam
+203, 812, SEY, CAF, Seychelles
+204, 808, LIE, UEFA, Liechtenstein
+205, 807, BAH, CONCACAF, Bahamas
+206, 804, TCA, CONCACAF, Turks and Caicos Islands
+207, 780, VIR, CONCACAF, U.S. Virgin Islands
+208, 769, VGB, CONCACAF, British Virgin Islands
+209, 759, AIA, CONCACAF, Anguilla
+210, 733, SMR, UEFA, San Marino

@@ -267,7 +267,7 @@ print(group_D)
 
 
 def checkGroupAvailability(confederation_in_question, group_in_question, max_amount_of_teams):
-    if len(group_in_question) >= max_amount_of_teams:
+    if len(group_in_question) > max_amount_of_teams:
         return False
     group_confederations = []
     for rank, ranking, code, confederation, name in group_in_question:
@@ -285,6 +285,21 @@ import random
 # Following the 2022 World Cup draw process I will go through the groups in alphabetical order and random draw a team
 # If a team from the same confederation is already in the chosen group I will move on to the next group until a group is found
 
+def drawFromPot(pot, pot_number):
+    while len(pot) > 0:
+        team = random.choice(pot)
+        for index in range(len(groups)):
+            cur_group = groups[index]
+            if checkGroupAvailability(team[3], cur_group, pot_number):
+                cur_group.append(team)
+                pot.remove(team)
+                break
+
+pots = [pot_1, pot_2, pot_3, pot_4]
+
+for index in range(len(pots)):
+    drawFromPot(pots[index], index)
+'''
 # POT 1
 
 # go down the list of groups
@@ -345,10 +360,15 @@ while len(pot_4) > 0:
             pot_4.remove(team)
             break
 
+'''
 
-for group in groups:
-    print("GROUP")
-    printList(group)
+
+letters = ['A','B','C','D','E','F','G','H','I','J','K','L']
+
+for index in range(len(groups)):
+    print("Group", letters[index])
+    # print(groups[index])
+    printList(groups[index])
 
 
 

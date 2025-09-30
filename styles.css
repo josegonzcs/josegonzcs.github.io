@@ -21,15 +21,15 @@ html, body{
     align-items: center;
     justify-content: center;
     background-color: gray;
-    padding: 1vh;
-    margin: 1vh;
+    padding: 0.3rem;
+    margin: 0.3rem;
     width: fit-content;
     height: fit-content;
 }
 
 .team{
-  height: 6vh;
-  width: 18vh;
+  height: 2rem;
+  width: 6rem;
   margin: 0.5vh;
   /* background-color: white; */
   cursor: move;
@@ -39,9 +39,9 @@ html, body{
   border-bottom-right-radius: 10%;
 }
 
-.team:hover{
+/* .team:hover{
   background-color: rgb(88, 88, 88);
-}
+} */
 
 .code{
   font-family:Courier;
@@ -66,5 +66,7 @@ html, body{
 
 
 .team.dragging{
-  opacity: 50%;
+  opacity: 25%;
+  background-color: rgb(88, 88, 88);
+  /* border: solid black 1px; */
 }
