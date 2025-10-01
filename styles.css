@@ -32,7 +32,7 @@ html, body{
   width: 6rem;
   margin: 0.5vh;
   /* background-color: white; */
-  cursor: move;
+  /* cursor: move; */
   display: flex;
   flex-direction: row;
   border-top-right-radius: 10%;
@@ -46,7 +46,7 @@ html, body{
 .code{
   font-family:Courier;
   font: bolder;
-  font-size:x-large;
+  font-size: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
