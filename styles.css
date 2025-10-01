@@ -32,7 +32,7 @@ html, body{
   width: 6rem;
   margin: 0.5vh;
   /* background-color: white; */
-  /* cursor: move; */
+  cursor:grab;
   display: flex;
   flex-direction: row;
   border-top-right-radius: 10%;
@@ -41,6 +41,7 @@ html, body{
 
 /* .team:hover{
   background-color: rgb(88, 88, 88);
+  border: solid white 2px;
 } */
 
 .code{
@@ -69,4 +70,5 @@ html, body{
   opacity: 25%;
   background-color: rgb(88, 88, 88);
   /* border: solid black 1px; */
+  /* cursor: grab; */
 }

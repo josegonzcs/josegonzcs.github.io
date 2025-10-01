@@ -55,32 +55,3 @@ function getDragAfterElement(group, y){
     }
   }, {offset: Number.NEGATIVE_INFINITY}).element
 }
-
-
-// async function changeFlagImage(element){
-//   var placeholder_flag = "images/placeholder_flag.png";
-//   var file = element.previousElementSibling.getAttribute("value")
-//   file = "png/" + file + ".png"
-  
-//   try {
-//     const response = await fetch(file)
-    
-//     if (!response.ok){
-//       element.src = placeholder_flag
-//     } else {
-//       element.src = file
-//     }
-//   } 
-//   catch(err) {
-//   }
-// }
-
-// flags.forEach(flag => {
-//   changeFlagImage(flag)
-// })
-
-
-var group_A = groups[0]
-console.log(group_A.children[0])
-// grab the top 2 from every group for the knockout stage
-// grab the 3rd from every group to add to table of 3rd place teams

@@ -158,14 +158,14 @@ a.sort((x, y) => x[0] - y[0])
 
 a = a.splice(0,4)
 
-var uefa_playoffs = [...a,
-                     ...uefa_runner_ups]
 
-uefa_playoffs = addCodeAndRankToList(uefa_playoffs, rankings)
+uefa_runner_ups = addCodeAndRankToList(uefa_runner_ups, rankings)
 
-uefa_playoffs.sort((x,y) => x[0] - y[0])
+var uefa_playoff_teams = [...a, ...uefa_runner_ups]
 
-uefa_playoffs.splice(0,4)
+uefa_playoff_teams.sort((x,y) => x[0] - y[0])
+
+uefa_playoff_teams.splice(4,12)
 
 var uefa_playoff_holder = ["UEFA Playoff",
                            "UEFA Playoff",
@@ -176,30 +176,35 @@ var inter_playoff_holder = ["Inter Playoff",
                             "Inter Playoff"]
 
 
-var qualified_teams = [...afc_qualified_teams,
-                       ...afc_current_group_winners,
-                       ...caf_group_winners, 
-                       ...concacaf_group_winners, 
-                       ...conmebol_qualified_teams,
-                       ...ofc_qualified_team, 
-                       ...uefa_group_winners,
-                       ...uefa_playoff_holder,
-                       ...inter_playoff_holder]
 
-qualified_teams = addCodeAndRankToList(qualified_teams, rankings)
-qualified_teams.sort((x, y) => x[0] - y[0])
 
-qualified_teams = [...hosts, ...qualified_teams]
 
 var inter_playoff_teams = [...afc_inter_confederation_team,
                            ...caf_inter_confederation_team,
                            ...concacaf_inter_confederation_teams,
                            ...conmebol_inter_confederation_team,
                            ...ofc_inter_confederation_team]
+
 inter_playoff_teams.sort((x, y) => x[0] - y[0])
 
-// console.log(qualified_teams)
-// console.log(inter_playoff_teams)
+inter_playoff_teams.splice(0,2)
+
+
+
+var qualified_teams = [...afc_qualified_teams,
+                       ...afc_current_group_winners,
+                       ...caf_group_winners, 
+                       ...concacaf_group_winners, 
+                       ...conmebol_qualified_teams,
+                       ...ofc_qualified_team, 
+                       ...uefa_group_winners]
+                    //    ...uefa_playoff_holder,
+                    //    ...inter_playoff_holder]
+
+qualified_teams = addCodeAndRankToList(qualified_teams, rankings)
+qualified_teams.sort((x, y) => x[0] - y[0])
+
+qualified_teams = [...hosts, ...qualified_teams, ...uefa_playoff_teams, ...inter_playoff_teams]
 
 var pot_1 = qualified_teams.slice(3,12)
 var pot_2 = qualified_teams.slice(12,24)
