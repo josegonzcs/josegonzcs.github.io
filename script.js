@@ -12,13 +12,17 @@ groups.forEach(group => {
     const afterElement = getDragAfterElement(group, e.clientY)
     const selectedTeam = document.querySelector(".dragging")
 
-    if (group.attributes[0].value == selectedTeam.attributes[0].value){
+    if (group.getAttribute("id") == selectedTeam.getAttribute("id")){
       if (afterElement == null ){
         group.appendChild(selectedTeam)
-        populateThirdPlaceColumn()
-      } else if (afterElement.attributes[0].value == selectedTeam.attributes[0].value) {
+        if(group.getAttribute("id") != "thirdplace"){
+          populateThirdPlaceColumn()
+        }
+      } else if (afterElement.getAttribute("id") == selectedTeam.getAttribute("id")) {
         group.insertBefore(selectedTeam, afterElement)
-        populateThirdPlaceColumn()
+        if(group.getAttribute("id") != "thirdplace"){
+          populateThirdPlaceColumn()
+        }
       }
     }
     })
@@ -45,11 +49,11 @@ codes.forEach(code => {
 
 function getDragAfterElement(group, y){
   const otherTeams = [...group.querySelectorAll(".team:not(.dragging)")]
-
+  
   return otherTeams.reduce((closest, child) => {
     const box = child.getBoundingClientRect()
     const offset = y - box.top - box.height / 2
-
+    
     if (offset < 0 && offset > closest.offset) {
       return {offset: offset, element: child}
     } else {

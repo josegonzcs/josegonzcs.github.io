@@ -21,7 +21,6 @@ function sort2DArray(array){
 }
 
 const rankings = await (readCSV("/rankings_18Sept2025.csv"))
-// console.log(rankings)
 
 function addCodeAndRankToList(list, rankings){
     var full_list = []
@@ -230,12 +229,6 @@ var group_J = []
 var group_K = []
 var group_L = []
 
-pot_1 = pot_1.slice(3)
-
-// pots.forEach(pot => {
-//     console.log("pot:",pot)
-// })
-
 var groups = [group_A,
               group_B,
               group_C,
@@ -287,12 +280,21 @@ function drawFromPot(pot, pot_number){
 
 
 export function populateThirdPlaceColumn(){
-    var group_elements = document.querySelectorAll(".group-container")
+    var group_elements = document.querySelectorAll(".group-container:not(.thirdplace-column)")
     var thirdplace_teams = []
     
     group_elements.forEach(group => {
         var team_copy = group.children[2].cloneNode(true)
         team_copy.classList.remove("dragging")
+
+        team_copy.addEventListener("dragstart", () => {
+          team_copy.classList.add("dragging")
+        })
+
+        team_copy.addEventListener("dragend", () => {
+          team_copy.classList.remove("dragging")
+        })
+        team_copy.setAttribute("id", "thirdplace")
         thirdplace_teams.push(team_copy)
     })
     
@@ -303,7 +305,7 @@ export function populateThirdPlaceColumn(){
 }
 
 function updateGroups(){
-    var group_elements = document.querySelectorAll(".group-container")
+    var group_elements = document.querySelectorAll(".group-container:not(.thirdplace-column)")
     for(var ix = 0; ix < group_elements.length; ix=ix+1){
         var group_element = group_elements[ix]
         for(var jx = 0; jx < group_element.children.length; jx=jx+1){
