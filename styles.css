@@ -32,17 +32,33 @@ html, body{
   width: 6rem;
   margin: 0.5vh;
   /* background-color: white; */
-  cursor:grab;
+  /* cursor:grab; */
   display: flex;
   flex-direction: row;
   border-top-right-radius: 10%;
   border-bottom-right-radius: 10%;
 }
 
-/* .team:hover{
-  background-color: rgb(88, 88, 88);
-  border: solid white 2px;
-} */
+.team:not(.dragging):hover .tooltip{
+  /* background-color: rgb(88, 88, 88);
+  border: solid white 2px; */
+  visibility: visible;
+  opacity: 80%;
+  transition: opacity 300ms ease-in-out 1300ms;
+}
+
+.tooltip{
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  margin-top: 1.5rem;
+  margin-left: 2rem;
+  /* width: min-content; */
+  height: min-content;
+  background-color: whitesmoke;
+  opacity: 0;
+}
+
 
 .code{
   font-family:Courier;
@@ -70,5 +86,25 @@ html, body{
   opacity: 25%;
   background-color: rgb(88, 88, 88);
   /* border: solid black 1px; */
-  /* cursor: grab; */
+  cursor: grab;
 }
+
+.thirdplace-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+
+.thirdplace-column{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+  padding: 0.3rem;
+  margin: 0.3rem;
+  width: fit-content;
+  height: fit-content;
+}
+

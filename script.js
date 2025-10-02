@@ -1,5 +1,5 @@
 //  TODO : Add drag and drop functionality 
-
+import {populateThirdPlaceColumn} from "./populate_groups.js"
 
 var groups = document.querySelectorAll(".group-container")
 var teams = document.querySelectorAll(".team")
@@ -15,8 +15,10 @@ groups.forEach(group => {
     if (group.attributes[0].value == selectedTeam.attributes[0].value){
       if (afterElement == null ){
         group.appendChild(selectedTeam)
+        populateThirdPlaceColumn()
       } else if (afterElement.attributes[0].value == selectedTeam.attributes[0].value) {
         group.insertBefore(selectedTeam, afterElement)
+        populateThirdPlaceColumn()
       }
     }
     })

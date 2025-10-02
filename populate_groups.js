@@ -285,17 +285,37 @@ function drawFromPot(pot, pot_number){
     }
 }
 
+
+export function populateThirdPlaceColumn(){
+    var group_elements = document.querySelectorAll(".group-container")
+    var thirdplace_teams = []
+    
+    group_elements.forEach(group => {
+        var team_copy = group.children[2].cloneNode(true)
+        team_copy.classList.remove("dragging")
+        thirdplace_teams.push(team_copy)
+    })
+    
+    var container = document.querySelector(".thirdplace-column")
+    for(var ix = 0; ix<12; ix=ix+1){
+        container.children[ix].replaceWith(thirdplace_teams[ix])
+    }
+}
+
 function updateGroups(){
     var group_elements = document.querySelectorAll(".group-container")
     for(var ix = 0; ix < group_elements.length; ix=ix+1){
         var group_element = group_elements[ix]
-        // console.log(group_element.children)
         for(var jx = 0; jx < group_element.children.length; jx=jx+1){
             var element = group_element.children[jx]
             var team_code = groups[ix][jx][2]
             element.children[0].setAttribute("value", team_code)
+            element.children[0].setAttribute("country", groups[ix][jx][4])
+            element.children[0].setAttribute("rank", groups[ix][jx][0])
         }
     }
+
+    populateThirdPlaceColumn()
 }
 
 var letters = ["A",
@@ -346,3 +366,13 @@ async function changeFlagImage(element){
 flags.forEach(flag => {
   changeFlagImage(flag)
 })
+
+var tooltips = document.querySelectorAll(".tooltip")
+tooltips.forEach(tooltip => {
+    tooltip.textContent = tooltip.previousElementSibling.previousElementSibling.getAttribute("country")+" - Rank: "+tooltip.previousElementSibling.previousElementSibling.getAttribute("rank")
+})
+
+
+
+
+
