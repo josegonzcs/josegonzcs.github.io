@@ -216,6 +216,22 @@ var pots = [pot_1,
             pot_4]
 
 
+var pot_elements = document.querySelectorAll(".pot")
+
+// for(var ix=0; ix<4; ix=ix+1){
+//     var cur_pot_element = pot_elements[ix]
+//     var cur_pot_list = pots[ix]
+//     for(var jx=0; jx<12; jx=jx+1){
+//         var cur_team = cur_pot_list[jx]
+//         var team_element = cur_pot_element.children[jx]
+//         team_element.setAttribute("value", cur_team[2])
+//         team_element.setAttribute("name", cur_team[3])
+//         team_element.setAttribute("rank", cur_team[0])
+//     }
+// }
+
+// pot_1 = pot_1.slice(3,12)
+
 var group_A = [qualified_teams[1]]
 var group_B = [qualified_teams[0]]
 var group_C = []
