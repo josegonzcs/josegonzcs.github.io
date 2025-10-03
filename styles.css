@@ -35,6 +35,7 @@ html, body{
   /* cursor:grab; */
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   border-top-right-radius: 10%;
   border-bottom-right-radius: 10%;
 }
@@ -43,20 +44,36 @@ html, body{
   /* background-color: rgb(88, 88, 88);
   border: solid white 2px; */
   visibility: visible;
-  opacity: 80%;
+  opacity: 90%;
   transition: opacity 300ms ease-in-out 1300ms;
 }
 
 .tooltip{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   visibility: hidden;
   position: absolute;
   z-index: 1;
-  margin-top: 1.5rem;
-  margin-left: 2rem;
-  /* width: min-content; */
+  padding: 5px;
+  border-radius: 3px;
+  margin-left: 6.5rem;
+  margin-top: -.4rem;
   height: min-content;
-  background-color: whitesmoke;
+  color: white;
+  background-color: black;
   opacity: 0;
+}
+
+.tooltip::before{
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* To the left of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
 }
 
 
@@ -73,6 +90,7 @@ html, body{
 .flag{
   /* height: 100%; */
   width: 40%;
+  /* max-height: 32px; */
   /* border-radius: 150%; */
   /* clip-path: circle(); */
   /* transform: scale(0.5); */

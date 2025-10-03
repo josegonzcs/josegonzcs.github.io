@@ -371,7 +371,12 @@ flags.forEach(flag => {
 
 var tooltips = document.querySelectorAll(".tooltip")
 tooltips.forEach(tooltip => {
-    tooltip.textContent = tooltip.previousElementSibling.previousElementSibling.getAttribute("country")+" - Rank: "+tooltip.previousElementSibling.previousElementSibling.getAttribute("rank")
+    var name = document.createElement("span")
+    var rank = document.createElement("span")
+    name.textContent = tooltip.previousElementSibling.previousElementSibling.getAttribute("country")
+    rank.textContent = "Rank: "+tooltip.previousElementSibling.previousElementSibling.getAttribute("rank")
+    tooltip.appendChild(name)
+    tooltip.appendChild(rank)
 })
 
 
