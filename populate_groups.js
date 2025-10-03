@@ -13,13 +13,6 @@ function parseCSVData(data){
     return lines
 }
 
-function sort2DArray(array){
-    var sorted = []
-    while(sorted.length < array.length){
-
-    }
-}
-
 const rankings = await (readCSV("/rankings_18Sept2025.csv"))
 
 function addCodeAndRankToList(list, rankings){
@@ -261,33 +254,50 @@ var groups = [group_A,
 
 function checkGroupAvailability(group, conf, num){
     if(group.length > num){
+        console.log("too many teams in group")
         return false
     }
+    console.log("not enough teams in group")
+
     
     var confederations = []
     group.forEach(team => {
         confederations.push(team[3])
     })
+    console.log("confederation of current team: ", conf)
+    console.log("confederations in group: ", confederations)
+    var duplicate_found = false;
 
-    confederations.forEach(confederation => {
+    for(var conf_index = 0; conf_index < confederations.length; conf_index=conf_index+1){
+        var confederation = confederations[conf_index]
         if(conf == confederation){
-            return false
+            if(conf == "UEFA"){
+                console.log("Confederation is uefa, so duplicates are okay")
+                return true
+            } else {
+                console.log("Confederation is NOT uefa, so duplicates are NOT okay")
+                return false
+            }
         }
-    })
+    }
 
     return true
 }
 
 function drawFromPot(pot, pot_number){
+    
     while(pot.length > 0){
         var team_index = Math.floor(Math.random() * pot.length)
         var team = pot[team_index]
         var conf = team[3]
         for(var ix = 0; ix < groups.length; ix=ix+1){
             var cur_group = groups[ix]
+            // console.log("Group: ",[...cur_group],checkGroupAvailability(cur_group, conf, pot_number))
+            // console.log(checkGroupAvailability(cur_group, conf, pot_number))
             if(checkGroupAvailability(cur_group, conf, pot_number)){
                 pot.splice(team_index, 1)
                 cur_group.push(team)
+                console.log("Team was added to group")
                 break
             }
         }
@@ -349,8 +359,14 @@ var letters = ["A",
                "K",
                "L"]
 
-for(var pot_index = 0; pot_index < pots.length; pot_index=pot_index+1){
-    drawFromPot(pots[pot_index], pot_index)
+function callDrawFunctionUntilFinished(){
+    var finished = false
+    while(finished != true){
+        for(var pot_index = 0; pot_index < pots.length; pot_index=pot_index+1){
+            drawFromPot(pots[pot_index], pot_index)
+        }
+        finished = true
+    }
 }
 
 updateGroups()
