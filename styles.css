@@ -1,16 +1,32 @@
-html, body{
-    height: 100%;
-    margin: 0;
-    background-color: black;
+html {
+  width: 100%;
 }
 
-.pots-container{
+body {
+  height: 100%;
+  /* width: min-content; */
+  min-width: fit-content;
+  margin: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.world-cup {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  align-items: center;
+  margin: 0 5rem 0 5rem;
+}
+
+.pots-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.pot{
+.pot {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,35 +38,36 @@ html, body{
   height: fit-content;
 }
 
-.groupstage-container{
+.groupstage-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 100%;
   align-items: center;
   justify-content: center;
 }
 
-.groupstage-container.row{
+.groupstage-container.row {
   flex-direction: row;
 }
 
-.group-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: gray;
-    padding: 0.3rem;
-    margin: 0.3rem;
-    width: fit-content;
-    height: fit-content;
+.group-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+  padding: 0.3rem;
+  margin: 0.3rem;
+  width: fit-content;
+  height: fit-content;
 }
 
-.team{
+.team {
   height: 2rem;
   width: 6rem;
   margin: 0.5vh;
   /* background-color: white; */
-  cursor:default ;
+  cursor: default;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -58,11 +75,11 @@ html, body{
   border-bottom-right-radius: 10%;
 }
 
-.team:hover{
+.team:hover {
   background-color: rgb(95, 93, 93);
 }
 
-.team:not(.dragging):hover .tooltip{
+.team:not(.dragging):hover .tooltip {
   /* background-color: rgb(88, 88, 88); */
   /* border: solid white 2px; */
   visibility: visible;
@@ -70,7 +87,7 @@ html, body{
   transition: opacity 300ms ease-in-out 1300ms;
 }
 
-.tooltip{
+.tooltip {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -80,14 +97,14 @@ html, body{
   padding: 5px;
   border-radius: 3px;
   margin-left: 6.5rem;
-  margin-top: -.4rem;
+  margin-top: -0.4rem;
   height: min-content;
   color: white;
   background-color: black;
   opacity: 0;
 }
 
-.tooltip::before{
+.tooltip::before {
   content: " ";
   position: absolute;
   top: 50%;
@@ -98,9 +115,8 @@ html, body{
   border-color: transparent black transparent transparent;
 }
 
-
-.code{
-  font-family:Courier;
+.code {
+  font-family: Courier;
   font: bolder;
   font-size: 100%;
   display: flex;
@@ -109,34 +125,37 @@ html, body{
   width: 100%;
 }
 
-.flag{
-  /* height: 100%; */
+.flag {
   width: 40%;
-  /* max-height: 32px; */
-  /* border-radius: 150%; */
-  /* clip-path: circle(); */
-  /* transform: scale(0.5); */
   border: 4px solid;
   border-radius: 10%;
   border-color: black;
 }
 
+.small-flag {
+  width: 40%;
+  border: 4px solid;
+  border-radius: 10%;
+  border-color: black;
+  margin-inline-end: 5px;
+}
 
-.team.dragging{
+.team.dragging {
   opacity: 25%;
   background-color: rgb(88, 88, 88);
   /* border: solid black 1px; */
   cursor: grab;
 }
 
-.thirdplace-container{
+.thirdplace-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
+  width: min-content;
 }
 
-.thirdplace-column{
+.thirdplace-column {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -148,3 +167,53 @@ html, body{
   height: fit-content;
 }
 
+.bracket {
+  /* height: 100%; */
+  width: 100%;
+  margin: 1rem;
+
+  background-color: rgb(50, 50, 50);
+  display: flex;
+  flex-direction: row;
+  /* writing-mode: vertical-lr; */
+  /* text-orientation: upright; */
+}
+
+.round-of-32 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.round-of-16 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.quarterfinals {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.semifinals {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.finals {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.box {
+  height: 2rem;
+  width: 6rem;
+  background-color: white;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: row;
+}
