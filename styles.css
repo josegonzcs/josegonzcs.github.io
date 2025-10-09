@@ -50,7 +50,7 @@ html, body{
   width: 6rem;
   margin: 0.5vh;
   /* background-color: white; */
-  /* cursor:grab; */
+  cursor:default ;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -58,9 +58,13 @@ html, body{
   border-bottom-right-radius: 10%;
 }
 
+.team:hover{
+  background-color: rgb(95, 93, 93);
+}
+
 .team:not(.dragging):hover .tooltip{
-  /* background-color: rgb(88, 88, 88);
-  border: solid white 2px; */
+  /* background-color: rgb(88, 88, 88); */
+  /* border: solid white 2px; */
   visibility: visible;
   opacity: 90%;
   transition: opacity 300ms ease-in-out 1300ms;

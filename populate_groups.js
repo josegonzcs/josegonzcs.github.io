@@ -157,7 +157,7 @@ var uefa_playoff_teams = [...a, ...uefa_runner_ups]
 
 uefa_playoff_teams.sort((x,y) => x[0] - y[0])
 
-uefa_playoff_teams.splice(4,12)
+uefa_playoff_teams.splice(4)
 
 var uefa_playoff_holder = ["UEFA Playoff",
                            "UEFA Playoff",
@@ -179,8 +179,7 @@ var inter_playoff_teams = [...afc_inter_confederation_team,
 
 inter_playoff_teams.sort((x, y) => x[0] - y[0])
 
-inter_playoff_teams.splice(0,2)
-
+inter_playoff_teams.splice(2)
 
 
 var qualified_teams = [...afc_qualified_teams,
@@ -203,27 +202,30 @@ var pot_2 = qualified_teams.slice(12,24)
 var pot_3 = qualified_teams.slice(24,36)
 var pot_4 = qualified_teams.slice(36,48)
 
-var pots = [pot_1,
-            pot_2,
-            pot_3,
-            pot_4]
-
+var pots = [qualified_teams.slice(0,12),
+    pot_2,
+    pot_3,
+    pot_4]
 
 var pot_elements = document.querySelectorAll(".pot")
 
-// for(var ix=0; ix<4; ix=ix+1){
-//     var cur_pot_element = pot_elements[ix]
-//     var cur_pot_list = pots[ix]
-//     for(var jx=0; jx<12; jx=jx+1){
-//         var cur_team = cur_pot_list[jx]
-//         var team_element = cur_pot_element.children[jx]
-//         team_element.setAttribute("value", cur_team[2])
-//         team_element.setAttribute("name", cur_team[3])
-//         team_element.setAttribute("rank", cur_team[0])
-//     }
-// }
+for(var ix=0; ix<4; ix=ix+1){
+    var cur_pot_element = pot_elements[ix]
+    var cur_pot_list = pots[ix]
+    for(var jx=0; jx<cur_pot_list.length; jx=jx+1){
+        var cur_team = cur_pot_list[jx]
+        var team_element = cur_pot_element.children[jx].children[0]
 
-// pot_1 = pot_1.slice(3,12)
+        team_element.setAttribute("value", cur_team[2])
+        team_element.setAttribute("country", cur_team[4])
+        team_element.setAttribute("rank", cur_team[0])
+    }
+}
+
+pots = [pot_1,
+        pot_2,
+        pot_3,
+        pot_4]
 
 var group_A = [qualified_teams[1]]
 var group_B = [qualified_teams[0]]
@@ -254,28 +256,21 @@ var groups = [group_A,
 
 function checkGroupAvailability(group, conf, num){
     if(group.length > num){
-        console.log("too many teams in group")
         return false
     }
-    console.log("not enough teams in group")
 
     
     var confederations = []
     group.forEach(team => {
         confederations.push(team[3])
     })
-    console.log("confederation of current team: ", conf)
-    console.log("confederations in group: ", confederations)
-    var duplicate_found = false;
 
     for(var conf_index = 0; conf_index < confederations.length; conf_index=conf_index+1){
         var confederation = confederations[conf_index]
         if(conf == confederation){
             if(conf == "UEFA"){
-                console.log("Confederation is uefa, so duplicates are okay")
                 return true
             } else {
-                console.log("Confederation is NOT uefa, so duplicates are NOT okay")
                 return false
             }
         }
@@ -285,23 +280,28 @@ function checkGroupAvailability(group, conf, num){
 }
 
 function drawFromPot(pot, pot_number){
-    
-    while(pot.length > 0){
-        var team_index = Math.floor(Math.random() * pot.length)
-        var team = pot[team_index]
+    var iterations = 0;
+    var pot_copy = pot
+    while(pot_copy.length > 0 && iterations < 25 ){
+        iterations += 1
+        // console.log(iterations)
+        var team_index = Math.floor(Math.random() * pot_copy.length)
+        var team = pot_copy[team_index]
         var conf = team[3]
         for(var ix = 0; ix < groups.length; ix=ix+1){
             var cur_group = groups[ix]
-            // console.log("Group: ",[...cur_group],checkGroupAvailability(cur_group, conf, pot_number))
-            // console.log(checkGroupAvailability(cur_group, conf, pot_number))
             if(checkGroupAvailability(cur_group, conf, pot_number)){
-                pot.splice(team_index, 1)
+                pot_copy.splice(team_index, 1)
                 cur_group.push(team)
-                console.log("Team was added to group")
                 break
             }
         }
     }
+    if(iterations == 25){
+        // console.log("returning false")
+        return false
+    }
+
 }
 
 
@@ -360,16 +360,26 @@ var letters = ["A",
                "L"]
 
 function callDrawFunctionUntilFinished(){
-    var finished = false
-    while(finished != true){
+    var not_finished = true
+    while(not_finished){
         for(var pot_index = 0; pot_index < pots.length; pot_index=pot_index+1){
-            drawFromPot(pots[pot_index], pot_index)
+            var result = drawFromPot(pots[pot_index], pot_index)
+            if(result == false){
+                not_finished = false
+                console.log("Drawing did not work")
+                window.location.reload();
+                return false
+            }
         }
-        finished = true
+        not_finished = false
     }
+    return true
 }
 
+callDrawFunctionUntilFinished()
+
 updateGroups()
+
 
 var codes = document.querySelectorAll(".code")
 var flags = document.querySelectorAll(".flag")
