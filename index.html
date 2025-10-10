@@ -614,65 +614,474 @@
           </div>
         </div>
       </div>
+      <script>
+        function highlightChosenTeam(matchid, option) {
+          var team = document.querySelector(`[matchid='${matchid}']`);
+          var team_flag = team.children[option];
+          var not_chosen_flag = team.children[1 - option];
+          team_flag.classList.toggle("chosen");
+          not_chosen_flag.classList.remove("chosen");
+        }
+      </script>
       <div class="bracket">
         <div class="round-of-32">
-          <div class="box">
-            <img class="small-flag" src="images/placeholder_flag.png" />
-            <img class="small-flag" src="images/placeholder_flag.png" />
+          <div matchid="74" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('74',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('74',1)"
+            />
           </div>
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
+          <div matchid="77" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('77',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('77',1)"
+            />
+          </div>
+          <div matchid="73" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('73',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('73',1)"
+            />
+          </div>
+          <div matchid="75" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('75',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('75',1)"
+            />
+          </div>
+          <div matchid="83" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('83',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('83',1)"
+            />
+          </div>
+          <div matchid="84" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('84',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('84',1)"
+            />
+          </div>
+          <div matchid="81" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('81',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('81',1)"
+            />
+          </div>
+          <div matchid="82" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('82',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('82',1)"
+            />
+          </div>
         </div>
         <div class="round-of-16">
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
+          <div matchid="89" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('89',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('89',1)"
+            />
+          </div>
+          <div matchid="90" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('90',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('90',1)"
+            />
+          </div>
+          <div matchid="93" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('93',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('93',1)"
+            />
+          </div>
+          <div matchid="94" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('94',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('94',1)"
+            />
+          </div>
         </div>
 
         <div class="quarterfinals">
-          <div class="box"></div>
-          <div class="box"></div>
+          <div matchid="97" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('97',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('97',1)"
+            />
+          </div>
+          <div matchid="98" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('98',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('98',1)"
+            />
+          </div>
         </div>
 
         <div class="semifinals">
-          <div class="box"></div>
+          <div matchid="101" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('101',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('101',1)"
+            />
+          </div>
         </div>
 
         <div class="finals">
-          <div class="box"></div>
+          <div matchid="103" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('103',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('103',1)"
+            />
+          </div>
         </div>
 
         <div class="semifinals">
-          <div class="box"></div>
+          <div matchid="102" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('102',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('102',1)"
+            />
+          </div>
         </div>
 
         <div class="quarterfinals">
-          <div class="box"></div>
-          <div class="box"></div>
+          <div matchid="99" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('99',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('99',1)"
+            />
+          </div>
+          <div matchid="100" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('100',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('100',1)"
+            />
+          </div>
         </div>
 
         <div class="round-of-16">
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
+          <div matchid="91" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('91',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('91',1)"
+            />
+          </div>
+          <div matchid="92" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('92',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('92',1)"
+            />
+          </div>
+          <div matchid="95" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('95',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('95',1)"
+            />
+          </div>
+          <div matchid="96" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('96',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('96',1)"
+            />
+          </div>
         </div>
 
         <div class="round-of-32">
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
-          <div class="box"></div>
+          <div matchid="76" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('76',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('76',1)"
+            />
+          </div>
+          <div matchid="78" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('78',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('78',1)"
+            />
+          </div>
+          <div matchid="79" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('79',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('79',1)"
+            />
+          </div>
+          <div matchid="80" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('80',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('80',1)"
+            />
+          </div>
+          <div matchid="86" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('86',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('86',1)"
+            />
+          </div>
+          <div matchid="88" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('88',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('88',1)"
+            />
+          </div>
+          <div matchid="85" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('85',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('85',1)"
+            />
+          </div>
+          <div matchid="87" class="box">
+            <img
+              id="option1"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('87',0)"
+            />
+            <img
+              id="option2"
+              class="small-flag"
+              src="images/placeholder_flag.png"
+              onclick="highlightChosenTeam('87',1)"
+            />
+          </div>
         </div>
       </div>
     </div>
