@@ -394,13 +394,12 @@ function updateGroups() {
       element.children[0].setAttribute("value", team_code);
       element.children[0].setAttribute("country", groups[ix][jx][4]);
       element.children[0].setAttribute("rank", groups[ix][jx][0]);
+      element.children[0].setAttribute("group", element.getAttribute("id"));
     }
   }
 
   populateThirdPlaceColumn();
 }
-
-var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
 
 function callDrawFunctionUntilFinished() {
   var not_finished = true;

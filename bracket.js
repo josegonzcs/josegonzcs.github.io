@@ -17,9 +17,20 @@ function parseCSV(data) {
   return matchups;
 }
 
-const rankings = await readMatchups("/matchups.csv");
+const matchups = await readMatchups("/matchups.csv");
 // make a list of passing team combinations and map them to the correct matchup
 // update bracket
+
+function topThirdPlaceTeams() {
+  var teams = document.getElementsByClassName("thirdplace-column")[0].children;
+  var top_8_groups = [];
+  for (var ix = 0; ix < 8; ix += 1) {
+    top_8_groups.push(teams[ix].children[0].getAttribute("group"));
+  }
+  console.log(top_8_groups);
+}
+
+topThirdPlaceTeams();
 
 // 1Aopponent,
 // 1Bopponent,
