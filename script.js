@@ -4,7 +4,6 @@ import { populateThirdPlaceColumn } from "./populate_groups.js";
 var groups = document.querySelectorAll(".group-container");
 var teams = document.querySelectorAll(".team");
 var codes = document.querySelectorAll(".code");
-var flags = document.querySelectorAll(".flag");
 
 groups.forEach((group) => {
   group.addEventListener("dragover", (e) => {
@@ -60,8 +59,4 @@ function getDragAfterElement(group, y) {
     },
     { offset: Number.NEGATIVE_INFINITY }
   ).element;
-}
-
-function highlightChosenTeam() {
-  console.log("Chosen");
 }

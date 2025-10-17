@@ -1,3 +1,24 @@
+// Read Matchups
+
+export async function readMatchups(url) {
+  const response = await fetch(url);
+  const data = await response.text();
+  return parseMatchupCSV(data);
+}
+
+function parseMatchupCSV(data) {
+  var rawdata = data.split("\r\n");
+  var matchups = new Map();
+  rawdata.forEach((line) => {
+    var qualifying_teams = line.split(",");
+    var matchup_teams = qualifying_teams.splice(8, 8);
+    matchups.set(qualifying_teams.join(""), matchup_teams);
+  });
+  return matchups;
+}
+
+// Read Rankings
+
 async function readCSV(url) {
   const response = await fetch(url);
   const data = await response.text();
