@@ -457,7 +457,7 @@ codes.forEach((code) => {
 async function changeFlagImage(element) {
   var placeholder_flag = "images/placeholder_flag.png";
   var file = element.previousElementSibling.getAttribute("value");
-  file = "png/" + file + ".png";
+  file = "images/" + file + ".png";
 
   try {
     const response = await fetch(file);

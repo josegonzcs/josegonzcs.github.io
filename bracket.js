@@ -56,6 +56,11 @@ function seedTeam(team, nextMatchId, option) {
   var ko_team = document.querySelector(`[matchid='${nextMatchId}']`).children[
     option
   ];
+  ko_team.setAttribute(
+    "src",
+    `images/${team.children[0].getAttribute("value")}.png`
+  );
+  ko_team.setAttribute("value", team.children[0].getAttribute("value"));
   console.log(ko_team);
 }
 
@@ -66,9 +71,10 @@ function printWinners() {
     group_winners.push(group_elements[ix].children[0]);
   }
 
-  console.log(group_winners[0]);
+  console.log(group_winners[11]);
 
   for (var ix = 0; ix < group_winners.length; ix += 1) {
+    // var code = group_winners[ix].children[0].getAttribute("value");
     seedTeam(group_winners[ix], groupWinnerNextMatch[ix], 0);
   }
 }
