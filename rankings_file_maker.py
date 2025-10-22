@@ -19,7 +19,7 @@ for line in file:
 
 file.close()
 
-old = open("rankings_10July2025.txt", "r") # RENAME TO LAST RANKINGS FILE
+old = open("rankings_18Sept2025.csv", "r") # RENAME TO LAST RANKINGS FILE
 
 old_rankings = []
 
@@ -45,8 +45,10 @@ for rank, country, ranking in rankings:
 
 # COPY OUTPUT FROM FOR LOOP BELOW AND SAVE IN A TEXT FILE
             
-# for rank, ranking, code, confederation, country in new_rankings: 
-#     print(rank, ranking, code, confederation, country)
+for rank, ranking, code, confederation, country in new_rankings: 
+    print(rank, ranking, code, confederation, country)
+
+'''
 
 import os
 
@@ -86,4 +88,4 @@ for rank, ranking, code, confederation, country in new_rankings:
 
         except:
             pass
-        
+      '''  
