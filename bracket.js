@@ -4,7 +4,6 @@ import { readMatchups } from "./populate_groups.js";
 
 const matchups = await readMatchups("/matchups.csv");
 
-console.log(matchups.get("ABCDEFGH"));
 // make a list of passing team combinations and map them to the correct matchup
 // update bracket
 
@@ -48,6 +47,17 @@ var groupRunnerupNextMatch = [
 ];
 var groupRunnerupNextMatchOption = [0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1];
 
+var top8ThirplaceNextMatch = ["79", "85", "81", "74", "82", "77", "87", "80"];
+
+// 1Aopponent,
+// 1Bopponent,
+// 1Dopponent,
+// 1Eopponent,
+// 1Gopponent,
+// 1Iopponent,
+// 1Kopponent,
+// 1Lopponent
+
 var group_elements = document.querySelectorAll(
   ".group-container:not(.thirdplace-column)"
 );
@@ -61,35 +71,44 @@ function seedTeam(team, nextMatchId, option) {
     `images/${team.children[0].getAttribute("value")}.png`
   );
   ko_team.setAttribute("value", team.children[0].getAttribute("value"));
-  console.log(ko_team);
+  // console.log(ko_team);
 }
 
-function printWinners() {
+function seedGroupWinners() {
   var group_winners = [];
 
+  // Loop through every group
   for (var ix = 0; ix < group_elements.length; ix += 1) {
+    // Grab group winner and find which round of 32 match they will play in
     group_winners.push(group_elements[ix].children[0]);
   }
-
-  console.log(group_winners[11]);
-
+  // Update match
   for (var ix = 0; ix < group_winners.length; ix += 1) {
     // var code = group_winners[ix].children[0].getAttribute("value");
     seedTeam(group_winners[ix], groupWinnerNextMatch[ix], 0);
   }
 }
 
-function seedGroupWinners() {
+function seedRunnersUp() {
+  var group_runnersup = [];
+
   // Loop through every group
-  var group;
-  // Grab group winner and find which round of 32 match they will play in
+  for (var ix = 0; ix < group_elements.length; ix += 1) {
+    // Grab group winner and find which round of 32 match they will play in
+    group_runnersup.push(group_elements[ix].children[1]);
+  }
   // Update match
+  for (var ix = 0; ix < group_runnersup.length; ix += 1) {
+    // var code = group_winners[ix].children[0].getAttribute("value");
+    seedTeam(
+      group_runnersup[ix],
+      groupRunnerupNextMatch[ix],
+      groupRunnerupNextMatchOption[ix]
+    );
+  }
 }
 
-function seedRunnersUp() {}
-
-function populateBracket() {
-  printWinners();
+function seedThirdPlaceTeams() {
   // Get the groups from the top 8 teams from the 12 third place teams
   var top8 = topThirdPlaceTeams().sort().join("");
   var matchup = matchups.get(top8);
@@ -99,6 +118,25 @@ function populateBracket() {
   // Find the matching matchup array
   console.log(matchup);
   // Call a function that correctly populates the bracket matchups
+
+  // loop through matchup array
+  for (var ix = 0; ix < matchup.length; ix += 1) {
+    var matchup_group = matchup[ix];
+    for (var jx = 0; jx < group_elements.length; jx += 1) {
+      if (group_elements[jx].getAttribute("id") == matchup_group) {
+        seedTeam(group_elements[jx].children[2], top8ThirplaceNextMatch[ix], 1);
+      }
+    }
+  }
+  // loop through list of groups and find matching group with matchup array
+
+  // add third place team from group to bracket
+}
+
+function populateBracket() {
+  seedGroupWinners();
+  seedRunnersUp();
+  seedThirdPlaceTeams();
 }
 
 var btn = document.getElementById("populateBracket");
@@ -128,12 +166,3 @@ bracket_teams.forEach((team) => {
     highlightChosenTeam(m, o);
   });
 });
-
-// 1Aopponent,
-// 1Bopponent,
-// 1Dopponent,
-// 1Eopponent,
-// 1Gopponent,
-// 1Iopponent,
-// 1Kopponent,
-// 1Lopponent
