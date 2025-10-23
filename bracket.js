@@ -71,7 +71,6 @@ function seedTeam(team, nextMatchId, option) {
     `images/${team.children[0].getAttribute("value")}.png`
   );
   ko_team.setAttribute("value", team.children[0].getAttribute("value"));
-  // console.log(ko_team);
 }
 
 function seedGroupWinners() {
@@ -114,9 +113,9 @@ function seedThirdPlaceTeams() {
   var matchup = matchups.get(top8);
 
   // Create a sorted string from the 8 groups
-  console.log(top8);
+  // console.log(top8);
   // Find the matching matchup array
-  console.log(matchup);
+  // console.log(matchup);
   // Call a function that correctly populates the bracket matchups
 
   // loop through matchup array
@@ -144,25 +143,54 @@ btn.addEventListener("click", () => {
   populateBracket();
 });
 
-function highlightChosenTeam(matchid, option) {
+function highlightChosenTeam(matchid, option, nextMatchID, nextOption) {
   var team = document.querySelector(`[matchid='${matchid}']`);
   var team_flag = team.children[option];
   var not_chosen_flag = team.children[1 - option];
   team_flag.classList.toggle("chosen");
+
+  var winning_team = team_flag.getAttribute("src");
   not_chosen_flag.classList.remove("chosen");
+
+  var nextMatch = document.querySelector(`[matchid='${nextMatchID}']`);
+  nextMatch.children[nextOption].setAttribute("src", winning_team);
+  console.log(nextMatch);
+
+  if (!team_flag.classList.contains("chosen")) {
+    // find every other instance of the flag and change it to the default flag
+    var teams = document.getElementsByClassName("small-flag");
+    for (var ix = 0; ix < teams.length; ix += 1) {
+      var t = teams[ix];
+      if (
+        Number(t.parentNode.getAttribute("matchid")) > Number(matchid) &&
+        t.getAttribute("src") == winning_team
+      ) {
+        t.setAttribute("src", "images/placeholder_flag.png");
+        t.classList.toggle("chosen");
+      }
+    }
+  }
 }
 
 var bracket_teams = document.querySelectorAll(".small-flag");
 
 bracket_teams.forEach((team) => {
   var m = team.parentNode.getAttribute("matchid");
+  var n = team.parentNode.getAttribute("nextMatch");
+  var p;
   var o;
   if (team.getAttribute("id") == "option1") {
     o = 0;
   } else {
     o = 1;
   }
+
+  if (team.parentNode.getAttribute("nextOption") == "0") {
+    p = 0;
+  } else {
+    p = 1;
+  }
   team.addEventListener("click", function () {
-    highlightChosenTeam(m, o);
+    highlightChosenTeam(m, o, n, p);
   });
 });

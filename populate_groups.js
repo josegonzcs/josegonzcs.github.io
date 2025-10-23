@@ -115,7 +115,7 @@ hosts = addCodeAndRankToList(hosts, rankings);
 
 var concacaf_group_winners = ["Suriname", "Jamaica", "Honduras"];
 
-var concacaf_runner_ups = ["El Salvador", "Curacao", "Costa Rica"];
+var concacaf_runner_ups = ["Panama", "Curacao", "Costa Rica"];
 
 var concacaf_inter_confederation_teams = decidePlayoffWinners(
   concacaf_runner_ups,
