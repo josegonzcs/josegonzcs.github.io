@@ -166,7 +166,7 @@ function highlightChosenTeam(matchid, option, nextMatchID, nextOption) {
         t.getAttribute("src") == winning_team
       ) {
         t.setAttribute("src", "images/placeholder_flag.png");
-        t.classList.toggle("chosen");
+        t.classList.remove("chosen");
       }
     }
   }
