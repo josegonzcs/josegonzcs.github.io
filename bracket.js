@@ -132,7 +132,29 @@ function seedThirdPlaceTeams() {
   // add third place team from group to bracket
 }
 
+function removeFlag(matchid, flag) {
+  var teams = document.getElementsByClassName("small-flag");
+  for (var ix = 0; ix < teams.length; ix += 1) {
+    var t = teams[ix];
+    if (
+      Number(t.parentNode.getAttribute("matchid")) > Number(matchid) &&
+      t.getAttribute("src") == flag
+    ) {
+      t.setAttribute("src", "images/placeholder_flag.png");
+      t.classList.remove("chosen");
+    } else if (matchid == -1) {
+      t.setAttribute("src", "images/placeholder_flag.png");
+      t.classList.remove("chosen");
+    }
+  }
+}
+
+function clearBracket() {
+  removeFlag(-1, "");
+}
+
 function populateBracket() {
+  clearBracket();
   seedGroupWinners();
   seedRunnersUp();
   seedThirdPlaceTeams();
@@ -149,26 +171,20 @@ function highlightChosenTeam(matchid, option, nextMatchID, nextOption) {
   var not_chosen_flag = team.children[1 - option];
   team_flag.classList.toggle("chosen");
 
-  var winning_team = team_flag.getAttribute("src");
-  not_chosen_flag.classList.remove("chosen");
+  var winning_team_flag = team_flag.getAttribute("src");
+  var losing_team_flag = not_chosen_flag.getAttribute("src");
+  if (not_chosen_flag.classList.contains("chosen")) {
+    not_chosen_flag.classList.remove("chosen");
+    removeFlag(matchid, losing_team_flag);
+  }
 
   var nextMatch = document.querySelector(`[matchid='${nextMatchID}']`);
-  nextMatch.children[nextOption].setAttribute("src", winning_team);
+  nextMatch.children[nextOption].setAttribute("src", winning_team_flag);
   console.log(nextMatch);
 
   if (!team_flag.classList.contains("chosen")) {
     // find every other instance of the flag and change it to the default flag
-    var teams = document.getElementsByClassName("small-flag");
-    for (var ix = 0; ix < teams.length; ix += 1) {
-      var t = teams[ix];
-      if (
-        Number(t.parentNode.getAttribute("matchid")) > Number(matchid) &&
-        t.getAttribute("src") == winning_team
-      ) {
-        t.setAttribute("src", "images/placeholder_flag.png");
-        t.classList.remove("chosen");
-      }
-    }
+    removeFlag(matchid, winning_team_flag);
   }
 }
 

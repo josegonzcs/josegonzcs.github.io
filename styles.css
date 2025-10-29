@@ -223,3 +223,34 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
+
+@media (max-width: 500px) {
+  .groupstage-container.row {
+    flex-direction: column;
+  }
+
+  .group-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    padding: 0.3rem;
+    margin: 0.3rem;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .team {
+    height: 2rem;
+    width: 6rem;
+    margin: 0.5vh;
+    /* background-color: white; */
+    cursor: default;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+  }
+}
