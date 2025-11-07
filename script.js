@@ -37,6 +37,9 @@ groups.forEach((group) => {
     const afterElement = getDragAfterElement(group, touchLocation.clientY);
     const selectedTeam = document.querySelector(".dragging");
 
+    console.log("group attribute", group.getAttribute("id"));
+    console.log("selected attribute", selectedTeam.getAttribute("id"));
+
     if (group.getAttribute("id") == selectedTeam.getAttribute("id")) {
       if (afterElement == null) {
         group.appendChild(selectedTeam);

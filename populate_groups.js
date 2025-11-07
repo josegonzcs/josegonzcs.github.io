@@ -395,6 +395,14 @@ export function populateThirdPlaceColumn() {
       team_copy.classList.remove("dragging");
     });
 
+    team_copy.addEventListener("touchmove", () => {
+      team_copy.classList.add("dragging");
+    });
+
+    team_copy.addEventListener("touchend", () => {
+      team_copy.classList.remove("dragging");
+    });
+
     team_copy.setAttribute("id", "thirdplace");
     thirdplace_teams.push(team_copy);
   });
