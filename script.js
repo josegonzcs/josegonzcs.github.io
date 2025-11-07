@@ -29,12 +29,46 @@ groups.forEach((group) => {
   });
 });
 
+groups.forEach((group) => {
+  group.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+    var touchLocation = e.targetTouches[0];
+
+    const afterElement = getDragAfterElement(group, touchLocation.clientY);
+    const selectedTeam = document.querySelector(".dragging");
+
+    if (group.getAttribute("id") == selectedTeam.getAttribute("id")) {
+      if (afterElement == null) {
+        group.appendChild(selectedTeam);
+        if (group.getAttribute("id") != "thirdplace") {
+          populateThirdPlaceColumn();
+        }
+      } else if (
+        afterElement.getAttribute("id") == selectedTeam.getAttribute("id")
+      ) {
+        group.insertBefore(selectedTeam, afterElement);
+        if (group.getAttribute("id") != "thirdplace") {
+          populateThirdPlaceColumn();
+        }
+      }
+    }
+  });
+});
+
 teams.forEach((team) => {
   team.addEventListener("dragstart", () => {
     team.classList.add("dragging");
   });
 
+  team.addEventListener("touchmove", () => {
+    team.classList.add("dragging");
+  });
+
   team.addEventListener("dragend", () => {
+    team.classList.remove("dragging");
+  });
+
+  team.addEventListener("touchend", () => {
     team.classList.remove("dragging");
   });
 });

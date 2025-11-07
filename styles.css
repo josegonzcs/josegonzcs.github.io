@@ -243,7 +243,8 @@ body {
 
   .team {
     height: 2rem;
-    width: 6rem;
+    /* width: 6rem; */
+    width: 100%;
     margin: 0.5vh;
     /* background-color: white; */
     cursor: default;
@@ -252,5 +253,12 @@ body {
     justify-content: space-between;
     border-top-right-radius: 10%;
     border-bottom-right-radius: 10%;
+  }
+
+  .flag {
+    width: 35px;
+    border: 3px solid;
+    border-radius: 10%;
+    border-color: black;
   }
 }

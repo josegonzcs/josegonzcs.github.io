@@ -394,13 +394,38 @@ export function populateThirdPlaceColumn() {
     team_copy.addEventListener("dragend", () => {
       team_copy.classList.remove("dragging");
     });
+
     team_copy.setAttribute("id", "thirdplace");
     thirdplace_teams.push(team_copy);
   });
 
   var container = document.querySelector(".thirdplace-column");
+
+  var group_names = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+  ];
+
   for (var ix = 0; ix < 12; ix = ix + 1) {
-    container.children[ix].replaceWith(thirdplace_teams[ix]);
+    for (var jx = 0; jx < 12; jx = jx + 1) {
+      // console.log(container.children[jx].getAttribute("group"));
+      if (
+        container.children[jx].children[0].getAttribute("group") ==
+        group_names[ix]
+      ) {
+        container.children[jx].replaceWith(thirdplace_teams[ix]);
+      }
+    }
   }
 }
 
