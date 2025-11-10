@@ -180,7 +180,6 @@ function highlightChosenTeam(matchid, option, nextMatchID, nextOption) {
 
   var nextMatch = document.querySelector(`[matchid='${nextMatchID}']`);
   nextMatch.children[nextOption].setAttribute("src", winning_team_flag);
-  console.log(nextMatch);
 
   if (!team_flag.classList.contains("chosen")) {
     // find every other instance of the flag and change it to the default flag

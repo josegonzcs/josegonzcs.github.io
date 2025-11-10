@@ -481,12 +481,8 @@ callDrawFunctionUntilFinished();
 
 updateGroups();
 
-var codes = document.querySelectorAll(".code");
 var flags = document.querySelectorAll(".flag");
 
-codes.forEach((code) => {
-  code.textContent = code.getAttribute("value");
-});
 
 async function changeFlagImage(element) {
   var placeholder_flag = "images/placeholder_flag.png";
