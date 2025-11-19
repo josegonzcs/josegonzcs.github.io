@@ -57,7 +57,7 @@ function decidePlayoffWinners(list, rankings, num) {
 }
 
 // #######
-// # AFC #
+// # AFC #  QUALIFICATIONS ARE FINISHED
 // #######
 
 var afc_qualified_teams = [
@@ -66,15 +66,12 @@ var afc_qualified_teams = [
   "Japan",
   "Jordan",
   "South Korea",
-  "Uzbekistan",
-  "Qatar",
   "Saudi Arabia",
+  "Qatar",
+  "Uzbekistan",
 ];
 
-// # Updated 10/14
-// var afc_current_group_winners = ["Qatar", "Saudi Arabia"];
-
-var afc_current_runner_ups = ["UAE", "Iraq"];
+var afc_current_runner_ups = ["Iraq"];
 
 var afc_inter_confederation_team = decidePlayoffWinners(
   afc_current_runner_ups,
@@ -83,7 +80,7 @@ var afc_inter_confederation_team = decidePlayoffWinners(
 );
 
 // #######
-// # CAF #
+// # CAF #  QUALIFICATIONS ARE FINISHED
 // #######
 
 var caf_group_winners = [
@@ -98,7 +95,7 @@ var caf_group_winners = [
   "Ghana",
 ];
 
-var caf_top_4_runner_ups = ["Gabon", "Cameroon", "DR Congo", "Nigeria"];
+var caf_top_4_runner_ups = ["DR Congo"];
 
 var caf_inter_confederation_team = decidePlayoffWinners(
   caf_top_4_runner_ups,
@@ -107,15 +104,15 @@ var caf_inter_confederation_team = decidePlayoffWinners(
 );
 
 // ############
-// # CONCACAF #
+// # CONCACAF #  QUALIFICATIONS ARE FINISHED
 // ############
 
 var hosts = ["Canada", "Mexico", "USA"];
 hosts = addCodeAndRankToList(hosts, rankings);
 
-var concacaf_group_winners = ["Suriname", "Jamaica", "Honduras"];
+var concacaf_group_winners = ["Panama", "Curacao", "Haiti"];
 
-var concacaf_runner_ups = ["Panama", "Curacao", "Costa Rica"];
+var concacaf_runner_ups = ["Jamaica", "Suriname"];
 
 var concacaf_inter_confederation_teams = decidePlayoffWinners(
   concacaf_runner_ups,
@@ -161,31 +158,31 @@ var ofc_inter_confederation_team = addCodeAndRankToList(
 // ########
 
 var uefa_group_winners = [
-  "Germany",
-  "Switzerland",
-  "Denmark",
-  "France",
-  "Portugal",
-  "Spain",
-  "Netherlands",
   "Austria",
-  "Norway",
   "Belgium",
-  "England",
   "Croatia",
+  "England",
+  "France",
+  "Germany",
+  "Netherlands",
+  "Norway",
+  "Portugal",
+  "Scotland",
+  "Spain",
+  "Switzerland",
 ];
 
 var uefa_runner_ups = [
-  "Northern Ireland",
+  "Slovakia",
   "Kosovo",
-  "Scotland",
+  "Denamrk",
   "Ukraine",
   "Turkey",
-  "Hungary",
+  "Ireland",
   "Poland",
   "Bosnia and Herzegovina",
   "Italy",
-  "North Macedonia",
+  "Wales",
   "Albania",
   "Czechia",
 ];
@@ -325,6 +322,16 @@ var groups = [
   group_L,
 ];
 
+function appearancesInList(element, list) {
+  var count = 0;
+  for (var index = 0; index < list.length; index += 1) {
+    if (list[index] == element) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
 function checkGroupAvailability(group, conf, num) {
   if (group.length > num) {
     return false;
@@ -342,7 +349,7 @@ function checkGroupAvailability(group, conf, num) {
   ) {
     var confederation = confederations[conf_index];
     if (conf == confederation) {
-      if (conf == "UEFA") {
+      if (conf == "UEFA" && appearancesInList("UEFA", confederations) < 2) {
         return true;
       } else {
         return false;

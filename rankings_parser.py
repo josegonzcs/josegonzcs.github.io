@@ -66,37 +66,35 @@ def decidePlayoffWinners(list, master, qualifying_team_amount):
     return full_list
 
 #######
-# AFC #
+# AFC #   QUALIFICATIONS ARE FINISHED
 #######
 
-afc_qualified_teams = ["Australia", "Iran", "Japan", "Jordan", "South Korea", "Uzbekistan"]
+afc_qualified_teams = ["Australia", "Iran", "Japan", "Jordan", "South Korea", "Saudi Arabia", "Qatar", "Uzbekistan"]
 
 # No games have been played as of 9/23/2025 so I'll use fifa rankings to decide winners and runner-ups
-afc_current_group_winners = ["Qatar", "Iraq"]
+afc_inter_playoff = ["Iraq"]
 
-afc_current_runner_ups = ["UAE", "Saudi Arabia"]
-
-afc_inter_confederation_team = decidePlayoffWinners(afc_current_runner_ups, rankings, 1)
+afc_inter_confederation_team = decidePlayoffWinners(afc_inter_playoff, rankings, 1)
 
 #######
-# CAF #
+# CAF #  QUALIFICATIONS ARE FINISHED
 #######
 
-caf_group_winners = ["Egypt", "Senegal", "South Africa", "Cape Verde", "Morocco", "Ivory Coast", "Algeria", "Tunisia", "Ghana"]
+caf_qualified_teams = ["Egypt", "Senegal", "South Africa", "Cape Verde", "Morocco", "Ivory Coast", "Algeria", "Tunisia", "Ghana"]
 
-caf_top_4_runner_ups = ["Gabon", "Madagascar", "DR Congo", "Burkina Faso"]
+caf_inter_playoff = ["DR Congo"]
 
-caf_inter_confederation_team = decidePlayoffWinners(caf_top_4_runner_ups, rankings, 1)
+caf_inter_confederation_team = decidePlayoffWinners(caf_inter_playoff, rankings, 1)
 
 ############
-# CONCACAF #
+# CONCACAF #  QUALIFICATIONS ARE FINISHED
 ############
 
-concacaf_group_winners = ["Suriname", "Jamaica", "Honduras"]
+concacaf_qualified_teams = ["Panama", "Curacao", "Haiti"]
 
-concacaf_runner_ups = ["El Salvador", "Curacao", "Costa Rica"]
+concacaf_inter_playoff = ["Jamaica", "Suriname"]
 
-concacaf_inter_confederation_teams = decidePlayoffWinners(concacaf_runner_ups, rankings, 2)
+concacaf_inter_confederation_teams = decidePlayoffWinners(concacaf_inter_playoff, rankings, 2)
 
 ############
 # CONMEBOL #  QUALIFICATIONS ARE FINISHED
@@ -122,31 +120,31 @@ ofc_inter_confederation_team = addCodeAndRankToList(ofc_inter_confederation_team
 # UEFA #
 ########
 
-uefa_group_winners = ["Slovakia", 
-                      "Switzerland",
-                      "Denmark",
-                      "France",
-                      "Portugal",
-                      "Spain",
-                      "Netherlands",
-                      "Bosnia and Herzegovina",
-                      "Norway",
-                      "North Macedonia",
+uefa_group_winners = ["Austria", 
+                      "Belgium",
+                      "Croatia",
                       "England",
-                      "Croatia"]
+                      "France",
+                      "Germany",
+                      "Netherlands",
+                      "Norway",
+                      "Portugal",
+                      "Scotland",
+                      "Spain",
+                      "Switzerland"]
 
-uefa_runner_ups = ["Northern Ireland",
-                                 "Kosovo",
-                                 "Scotland",
-                                 "Iceland",
-                                 "Georgia",
-                                 "Armenia",
-                                 "Poland",
-                                 "Austria",
-                                 "Italy",
-                                 "Belgium",
-                                 "Albania",
-                                 "Czechia"]
+uefa_runner_ups = ["Slovakia",
+                   "Kosovo",
+                   "Denamrk",
+                   "Ukraine",
+                   "Turkiye",
+                   "Ireland",
+                   "Poland",
+                   "Bosnia and Herzegovina",
+                   "Italy",
+                   "Wales",
+                   "Albania",
+                   "Czechia"]
 
 uefa_nations_league_group_winners = ["Spain",
                                      "Germany",
@@ -174,7 +172,7 @@ uefa_playoff_teams = list(uefa_runner_ups + remaining_nations_league_group_winne
 
 uefa_remaining_qualified_teams = decidePlayoffWinners(uefa_playoff_teams, rankings, 4)
 
-current_qualified_teams = list(afc_qualified_teams + afc_current_group_winners + caf_group_winners + concacaf_group_winners + conmebol_qualified_teams + ofc_qualified_team + uefa_group_winners)
+current_qualified_teams = list(afc_qualified_teams + caf_qualified_teams + concacaf_qualified_teams + conmebol_qualified_teams + ofc_qualified_team + uefa_group_winners)
 
 current_qualified_teams = addCodeAndRankToList(current_qualified_teams, rankings)
 
