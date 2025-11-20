@@ -34,7 +34,7 @@ function parseCSVData(data) {
   return lines;
 }
 
-const rankings = await readCSV("/rankings_17Oct2025.csv");
+const rankings = await readCSV("/rankings_19Nov2025.csv");
 // const rankings = await readCSV("/rankings_18Sept2025.csv");
 
 function addCodeAndRankToList(list, rankings) {

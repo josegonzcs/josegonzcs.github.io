@@ -19,7 +19,7 @@ for line in file:
 
 file.close()
 
-old = open("rankings_18Sept2025.csv", "r") # RENAME TO LAST RANKINGS FILE
+old = open("rankings_17Oct2025.csv", "r") # RENAME TO LAST RANKINGS FILE
 
 old_rankings = []
 
