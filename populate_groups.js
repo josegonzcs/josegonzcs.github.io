@@ -83,7 +83,7 @@ var afc_inter_confederation_team = decidePlayoffWinners(
 // # CAF #  QUALIFICATIONS ARE FINISHED
 // #######
 
-var caf_group_winners = [
+var caf_qualified_teams = [
   "Egypt",
   "Senegal",
   "South Africa",
@@ -95,13 +95,13 @@ var caf_group_winners = [
   "Ghana",
 ];
 
-var caf_top_4_runner_ups = ["DR Congo"];
+// var caf_top_4_runner_ups = ["DR Congo"];
 
-var caf_inter_confederation_team = decidePlayoffWinners(
-  caf_top_4_runner_ups,
-  rankings,
-  1
-);
+// var caf_inter_confederation_team = decidePlayoffWinners(
+//   caf_top_4_runner_ups,
+//   rankings,
+//   1
+// );
 
 // ############
 // # CONCACAF #  QUALIFICATIONS ARE FINISHED
@@ -110,16 +110,16 @@ var caf_inter_confederation_team = decidePlayoffWinners(
 var hosts = ["Canada", "Mexico", "USA"];
 hosts = addCodeAndRankToList(hosts, rankings);
 
-var concacaf_group_winners = ["Panama", "Curacao", "Haiti"];
+var concacaf_qualified_teams = ["Panama", "Curacao", "Haiti"];
 
-var concacaf_runner_ups = ["Jamaica", "Suriname"];
+// var concacaf_runner_ups = ["DR Congo","Jamaica", "Suriname"];
 
-var concacaf_inter_confederation_teams = decidePlayoffWinners(
-  concacaf_runner_ups,
-  rankings,
-  2
-);
-
+// var concacaf_inter_confederation_teams = decidePlayoffWinners(
+//   concacaf_runner_ups,
+//   rankings,
+//   2
+// );
+//
 // ############
 // # CONMEBOL #  QUALIFICATIONS ARE FINISHED
 // ############
@@ -133,12 +133,12 @@ var conmebol_qualified_teams = [
   "Paraguay",
 ];
 
-var conmebol_inter_confederation_team = ["Bolivia"];
+// var conmebol_inter_confederation_team = ["DR Congo","Jamaica", "Suriname","Bolivia"];
 
-var conmebol_inter_confederation_team = addCodeAndRankToList(
-  conmebol_inter_confederation_team,
-  rankings
-);
+// var conmebol_inter_confederation_team = addCodeAndRankToList(
+//   conmebol_inter_confederation_team,
+//   rankings
+// );
 
 // #######
 // # OFC #  QUALIFICATIONS ARE FINISHED
@@ -146,18 +146,18 @@ var conmebol_inter_confederation_team = addCodeAndRankToList(
 
 var ofc_qualified_team = ["New Zealand"];
 
-var ofc_inter_confederation_team = ["New Caledonia"];
+// var ofc_inter_confederation_team = ["DR Congo","Jamaica", "Suriname","Bolivia","New Caledonia"];
 
-var ofc_inter_confederation_team = addCodeAndRankToList(
-  ofc_inter_confederation_team,
-  rankings
-);
+// var ofc_inter_confederation_team = addCodeAndRankToList(
+//   ofc_inter_confederation_team,
+//   rankings
+// );
 
 // ########
 // # UEFA #
 // ########
 
-var uefa_group_winners = [
+var uefa_qualified_teams = [
   "Austria",
   "Belgium",
   "Croatia",
@@ -172,77 +172,88 @@ var uefa_group_winners = [
   "Switzerland",
 ];
 
-var uefa_runner_ups = [
-  "Slovakia",
-  "Kosovo",
-  "Denamrk",
-  "Ukraine",
-  "Turkey",
-  "Ireland",
-  "Poland",
-  "Bosnia and Herzegovina",
-  "Italy",
-  "Wales",
-  "Albania",
-  "Czechia",
-];
+// var uefa_runner_ups = [
+//   "Slovakia",
+//   "Kosovo",
+//   "Denamrk",
+//   "Ukraine",
+//   "Turkey",
+//   "Ireland",
+//   "Poland",
+//   "Bosnia and Herzegovina",
+//   "Italy",
+//   "Wales",
+//   "Albania",
+//   "Czechia",
+// ];
 
-var uefa_nations_league_group_winners = [
-  "Spain",
-  "Germany",
-  "Portugal",
-  "France",
-  "England",
-  "Norway",
+// var uefa_nations_league_group_winners = [
+//   "Spain",
+//   "Germany",
+//   "Portugal",
+//   "France",
+//   "England",
+//   "Norway",
+//   "Wales",
+//   "Czechia",
+//   "Romania",
+//   "Sweden",
+//   "North Macedonia",
+//   "Northern Ireland",
+//   "Moldova",
+//   "San Marino",
+// ];
+
+// var a = new Set(uefa_nations_league_group_winners);
+// var b = new Set(uefa_runner_ups);
+// var c = new Set(uefa_group_winners);
+
+// a = a.difference(b);
+// a = a.difference(c);
+
+// a = Array.from(a);
+
+// a = addCodeAndRankToList(a, rankings);
+
+// a.sort((x, y) => x[0] - y[0]);
+
+// a = a.splice(0, 4);
+
+// uefa_runner_ups = addCodeAndRankToList(uefa_runner_ups, rankings);
+
+var uefa_playoff_teams = [
+  "Italy",
+  "Denmark",
+  "Turkiye",
+  "Ukraine",
+  "Poland",
   "Wales",
-  "Czechia",
-  "Romania",
+  "Czech Republic",
+  "Slovakia",
+  "Ireland",
+  "Albania",
+  "Bosnia and Herzegovina",
+  "Kosovo",
   "Sweden",
+  "Romania",
   "North Macedonia",
   "Northern Ireland",
-  "Moldova",
-  "San Marino",
 ];
 
-var a = new Set(uefa_nations_league_group_winners);
-var b = new Set(uefa_runner_ups);
-var c = new Set(uefa_group_winners);
-
-a = a.difference(b);
-a = a.difference(c);
-
-a = Array.from(a);
-
-a = addCodeAndRankToList(a, rankings);
-
-a.sort((x, y) => x[0] - y[0]);
-
-a = a.splice(0, 4);
-
-uefa_runner_ups = addCodeAndRankToList(uefa_runner_ups, rankings);
-
-var uefa_playoff_teams = [...a, ...uefa_runner_ups];
-
+uefa_playoff_teams = addCodeAndRankToList(uefa_playoff_teams, rankings);
 uefa_playoff_teams.sort((x, y) => x[0] - y[0]);
 
 uefa_playoff_teams.splice(4);
 
-var uefa_playoff_holder = [
-  "UEFA Playoff",
-  "UEFA Playoff",
-  "UEFA Playoff",
-  "UEFA Playoff",
-];
-
-var inter_playoff_holder = ["Inter Playoff", "Inter Playoff"];
-
 var inter_playoff_teams = [
-  ...afc_inter_confederation_team,
-  ...caf_inter_confederation_team,
-  ...concacaf_inter_confederation_teams,
-  ...conmebol_inter_confederation_team,
-  ...ofc_inter_confederation_team,
+  "DR Congo",
+  "Jamaica",
+  "Suriname",
+  "Bolivia",
+  "New Caledonia",
 ];
+
+inter_playoff_teams = addCodeAndRankToList(inter_playoff_teams, rankings);
 
 inter_playoff_teams.sort((x, y) => x[0] - y[0]);
 
@@ -250,15 +261,12 @@ inter_playoff_teams.splice(2);
 
 var qualified_teams = [
   ...afc_qualified_teams,
-  //   ...afc_current_group_winners,
-  ...caf_group_winners,
-  ...concacaf_group_winners,
+  ...caf_qualified_teams,
+  ...concacaf_qualified_teams,
   ...conmebol_qualified_teams,
   ...ofc_qualified_team,
-  ...uefa_group_winners,
+  ...uefa_qualified_teams,
 ];
-//    ...uefa_playoff_holder,
-//    ...inter_playoff_holder]
 
 qualified_teams = addCodeAndRankToList(qualified_teams, rankings);
 qualified_teams.sort((x, y) => x[0] - y[0]);
@@ -489,7 +497,6 @@ callDrawFunctionUntilFinished();
 updateGroups();
 
 var flags = document.querySelectorAll(".flag");
-
 
 async function changeFlagImage(element) {
   var placeholder_flag = "images/placeholder_flag.png";
