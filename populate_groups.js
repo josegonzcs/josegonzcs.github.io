@@ -1,4 +1,4 @@
-// Read Matchups
+// Read Knockout Matchups
 
 export async function readMatchups(url) {
   const response = await fetch(url);
@@ -17,7 +17,7 @@ function parseMatchupCSV(data) {
   return matchups;
 }
 
-// Read Rankings
+// Read Team Rankings
 
 async function readCSV(url) {
   const response = await fetch(url);
@@ -35,285 +35,28 @@ function parseCSVData(data) {
 }
 
 const rankings = await readCSV("/rankings_19Nov2025.csv");
-// const rankings = await readCSV("/rankings_18Sept2025.csv");
 
-function addCodeAndRankToList(list, rankings) {
-  var full_list = [];
-  list.forEach((e) => {
-    rankings.forEach((r) => {
-      if (e === r[0][4]) {
-        full_list.push(r[0]);
-      }
-    });
-  });
-  return full_list;
-}
+// Playoff Teams and Groups
 
-function decidePlayoffWinners(list, rankings, num) {
-  list = addCodeAndRankToList(list, rankings);
-  list.sort((x, y) => x[0] - y[0]);
-  list = list.splice(0, num);
-  return list;
-}
+var uefa_a; // Italy, Northern Ireland, Wales, Bosnia and Herzegovina
+var uefa_b; // Ukraine, Sweden, Poland, Albania
+var uefa_c; // Turkey, Romania, Slovakia, Kosovo
+var uefa_d; // Denmark, North Macedonia, Czechia, Ireland
+var inter_1; // DR Congo, Jamaica, New Caledonia
+var inter_2; // Iraq, Bolivia, Suriname
 
-// #######
-// # AFC #  QUALIFICATIONS ARE FINISHED
-// #######
-
-var afc_qualified_teams = [
-  "Australia",
-  "Iran",
-  "Japan",
-  "Jordan",
-  "South Korea",
-  "Saudi Arabia",
-  "Qatar",
-  "Uzbekistan",
-];
-
-var afc_current_runner_ups = ["Iraq"];
-
-var afc_inter_confederation_team = decidePlayoffWinners(
-  afc_current_runner_ups,
-  rankings,
-  1
-);
-
-// #######
-// # CAF #  QUALIFICATIONS ARE FINISHED
-// #######
-
-var caf_qualified_teams = [
-  "Egypt",
-  "Senegal",
-  "South Africa",
-  "Cape Verde",
-  "Morocco",
-  "Ivory Coast",
-  "Algeria",
-  "Tunisia",
-  "Ghana",
-];
-
-// var caf_top_4_runner_ups = ["DR Congo"];
-
-// var caf_inter_confederation_team = decidePlayoffWinners(
-//   caf_top_4_runner_ups,
-//   rankings,
-//   1
-// );
-
-// ############
-// # CONCACAF #  QUALIFICATIONS ARE FINISHED
-// ############
-
-var hosts = ["Canada", "Mexico", "USA"];
-hosts = addCodeAndRankToList(hosts, rankings);
-
-var concacaf_qualified_teams = ["Panama", "Curacao", "Haiti"];
-
-// var concacaf_runner_ups = ["DR Congo","Jamaica", "Suriname"];
-
-// var concacaf_inter_confederation_teams = decidePlayoffWinners(
-//   concacaf_runner_ups,
-//   rankings,
-//   2
-// );
-//
-// ############
-// # CONMEBOL #  QUALIFICATIONS ARE FINISHED
-// ############
-
-var conmebol_qualified_teams = [
-  "Argentina",
-  "Ecuador",
-  "Colombia",
-  "Uruguay",
-  "Brazil",
-  "Paraguay",
-];
-
-// var conmebol_inter_confederation_team = ["DR Congo","Jamaica", "Suriname","Bolivia"];
-
-// var conmebol_inter_confederation_team = addCodeAndRankToList(
-//   conmebol_inter_confederation_team,
-//   rankings
-// );
-
-// #######
-// # OFC #  QUALIFICATIONS ARE FINISHED
-// #######
-
-var ofc_qualified_team = ["New Zealand"];
-
-// var ofc_inter_confederation_team = ["DR Congo","Jamaica", "Suriname","Bolivia","New Caledonia"];
-
-// var ofc_inter_confederation_team = addCodeAndRankToList(
-//   ofc_inter_confederation_team,
-//   rankings
-// );
-
-// ########
-// # UEFA #
-// ########
-
-var uefa_qualified_teams = [
-  "Austria",
-  "Belgium",
-  "Croatia",
-  "England",
-  "France",
-  "Germany",
-  "Netherlands",
-  "Norway",
-  "Portugal",
-  "Scotland",
-  "Spain",
-  "Switzerland",
-];
-
-// var uefa_runner_ups = [
-//   "Slovakia",
-//   "Kosovo",
-//   "Denamrk",
-//   "Ukraine",
-//   "Turkey",
-//   "Ireland",
-//   "Poland",
-//   "Bosnia and Herzegovina",
-//   "Italy",
-//   "Wales",
-//   "Albania",
-//   "Czechia",
-// ];
-
-// var uefa_nations_league_group_winners = [
-//   "Spain",
-//   "Germany",
-//   "Portugal",
-//   "France",
-//   "England",
-//   "Norway",
-//   "Wales",
-//   "Czechia",
-//   "Romania",
-//   "Sweden",
-//   "North Macedonia",
-//   "Northern Ireland",
-//   "Moldova",
-//   "San Marino",
-// ];
-
-// var a = new Set(uefa_nations_league_group_winners);
-// var b = new Set(uefa_runner_ups);
-// var c = new Set(uefa_group_winners);
-
-// a = a.difference(b);
-// a = a.difference(c);
-
-// a = Array.from(a);
-
-// a = addCodeAndRankToList(a, rankings);
-
-// a.sort((x, y) => x[0] - y[0]);
-
-// a = a.splice(0, 4);
-
-// uefa_runner_ups = addCodeAndRankToList(uefa_runner_ups, rankings);
-
-var uefa_playoff_teams = [
-  "Italy",
-  "Denmark",
-  "Turkiye",
-  "Ukraine",
-  "Poland",
-  "Wales",
-  "Czech Republic",
-  "Slovakia",
-  "Ireland",
-  "Albania",
-  "Bosnia and Herzegovina",
-  "Kosovo",
-  "Sweden",
-  "Romania",
-  "North Macedonia",
-  "Northern Ireland",
-];
-
-uefa_playoff_teams = addCodeAndRankToList(uefa_playoff_teams, rankings);
-uefa_playoff_teams.sort((x, y) => x[0] - y[0]);
-
-uefa_playoff_teams.splice(4);
-
-var inter_playoff_teams = [
-  "DR Congo",
-  "Jamaica",
-  "Suriname",
-  "Bolivia",
-  "New Caledonia",
-];
-
-inter_playoff_teams = addCodeAndRankToList(inter_playoff_teams, rankings);
-
-inter_playoff_teams.sort((x, y) => x[0] - y[0]);
-
-inter_playoff_teams.splice(2);
-
-var qualified_teams = [
-  ...afc_qualified_teams,
-  ...caf_qualified_teams,
-  ...concacaf_qualified_teams,
-  ...conmebol_qualified_teams,
-  ...ofc_qualified_team,
-  ...uefa_qualified_teams,
-];
-
-qualified_teams = addCodeAndRankToList(qualified_teams, rankings);
-qualified_teams.sort((x, y) => x[0] - y[0]);
-
-qualified_teams = [
-  ...hosts,
-  ...qualified_teams,
-  ...uefa_playoff_teams,
-  ...inter_playoff_teams,
-];
-
-var pot_1 = qualified_teams.slice(3, 12);
-var pot_2 = qualified_teams.slice(12, 24);
-var pot_3 = qualified_teams.slice(24, 36);
-var pot_4 = qualified_teams.slice(36, 48);
-
-var pots = [qualified_teams.slice(0, 12), pot_2, pot_3, pot_4];
-
-var pot_elements = document.querySelectorAll(".pot");
-
-for (var ix = 0; ix < 4; ix = ix + 1) {
-  var cur_pot_element = pot_elements[ix];
-  var cur_pot_list = pots[ix];
-  for (var jx = 0; jx < cur_pot_list.length; jx = jx + 1) {
-    var cur_team = cur_pot_list[jx];
-    var team_element = cur_pot_element.children[jx].children[0];
-
-    team_element.setAttribute("value", cur_team[2]);
-    team_element.setAttribute("country", cur_team[4]);
-    team_element.setAttribute("rank", cur_team[0]);
-  }
-}
-
-pots = [pot_1, pot_2, pot_3, pot_4];
-
-var group_A = [qualified_teams[1]];
-var group_B = [qualified_teams[0]];
-var group_C = [];
-var group_D = [qualified_teams[2]];
-var group_E = [];
-var group_F = [];
-var group_G = [];
-var group_H = [];
-var group_I = [];
-var group_J = [];
-var group_K = [];
-var group_L = [];
+var group_A = ["Mexico", "South Africa", "Korea Republic", uefa_d];
+var group_B = ["Canada", uefa_a, "Qatar", "Switzerland"];
+var group_C = ["Brazil", "Morocco", "Haiti", "Scotland"];
+var group_D = ["USA", "Paraguay", "Australia", uefa_c];
+var group_E = ["Germany", "Curacao", "Ivory Coast", "Ecuador"];
+var group_F = ["Netherlands", "Japan", uefa_b, "Tunisia"];
+var group_G = ["Belgium", "Egypt", "Iran", "New Zealand"];
+var group_H = ["Spain", "Cape Verde", "Saudi Arabia", "Uruguay"];
+var group_I = ["France", "Senegal", inter_2, "Norway"];
+var group_J = ["Argentina", "Algeria", "Austria", "Jordan"];
+var group_K = ["Portugal", inter_1, "Uzbekistan", "Colombia"];
+var group_L = ["England", "Croatia", , "Panama", "Ghana"];
 
 var groups = [
   group_A,
@@ -329,6 +72,10 @@ var groups = [
   group_K,
   group_L,
 ];
+
+for (var i = 0; i < groups.length; i += 1) {
+  // add
+}
 
 function appearancesInList(element, list) {
   var count = 0;
@@ -492,7 +239,7 @@ function callDrawFunctionUntilFinished() {
   return true;
 }
 
-callDrawFunctionUntilFinished();
+// callDrawFunctionUntilFinished();
 
 updateGroups();
 
