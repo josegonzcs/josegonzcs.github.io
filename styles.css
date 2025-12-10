@@ -41,15 +41,20 @@ body {
 .playoff-matches {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .playoff-path {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: fit-content;
   font-size: 15px;
   font-family: Verdana;
   color: white;
+  border: gray solid 2px;
+  border-radius: 5px;
+  margin-top: 2%;
 }
 
 .playoff-team {
@@ -61,8 +66,15 @@ body {
 .playoff-img {
   height: 120px;
   width: 160px;
-  padding-left: 15px;
-  padding-right: 15px;
+  border: 4px solid black;
+  margin-left: 15px;
+  margin-right: 15px;
+  opacity: 66%;
+}
+
+.chosen {
+  border: 4px solid green;
+  opacity: 100%;
 }
 
 .team.dragging {

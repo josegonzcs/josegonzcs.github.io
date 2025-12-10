@@ -38,12 +38,43 @@ const rankings = await readCSV("/rankings_19Nov2025.csv");
 
 // Playoff Teams and Groups
 
+var playoff_teams = document.querySelectorAll(`[class = playoff-img]`);
+
+playoff_teams.forEach((obj) => {
+  obj.addEventListener("click", () => {
+    var path = obj.parentElement.parentElement.children;
+    for (var i = 0; i < path.length; i += 1) {
+      path[i].children[0].classList.remove("chosen");
+    }
+    obj.classList.toggle("chosen");
+  });
+});
+
 var uefa_a; // Italy, Northern Ireland, Wales, Bosnia and Herzegovina
 var uefa_b; // Ukraine, Sweden, Poland, Albania
 var uefa_c; // Turkey, Romania, Slovakia, Kosovo
 var uefa_d; // Denmark, North Macedonia, Czechia, Ireland
 var inter_1; // DR Congo, Jamaica, New Caledonia
 var inter_2; // Iraq, Bolivia, Suriname
+
+var predicted_playoff_teams = [
+  uefa_a,
+  uefa_b,
+  uefa_c,
+  uefa_d,
+  inter_1,
+  inter_2,
+];
+
+var continue_button = document.getElementById("continue");
+
+continue_button.addEventListener("click", () => {
+  var chosen_playoff_teams = document.getElementsByClassName("chosen");
+  for (var i = 0; i < predicted_playoff_teams.length; i += 1) {
+    predicted_playoff_teams[i] = chosen_playoff_teams[i].name;
+  }
+  console.log(predicted_playoff_teams);
+});
 
 var group_A = ["Mexico", "South Africa", "Korea Republic", uefa_d];
 var group_B = ["Canada", uefa_a, "Qatar", "Switzerland"];
@@ -75,68 +106,6 @@ var groups = [
 
 for (var i = 0; i < groups.length; i += 1) {
   // add
-}
-
-function appearancesInList(element, list) {
-  var count = 0;
-  for (var index = 0; index < list.length; index += 1) {
-    if (list[index] == element) {
-      count += 1;
-    }
-  }
-  return count;
-}
-
-function checkGroupAvailability(group, conf, num) {
-  if (group.length > num) {
-    return false;
-  }
-
-  var confederations = [];
-  group.forEach((team) => {
-    confederations.push(team[3]);
-  });
-
-  for (
-    var conf_index = 0;
-    conf_index < confederations.length;
-    conf_index = conf_index + 1
-  ) {
-    var confederation = confederations[conf_index];
-    if (conf == confederation) {
-      if (conf == "UEFA" && appearancesInList("UEFA", confederations) < 2) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-  }
-
-  return true;
-}
-
-function drawFromPot(pot, pot_number) {
-  var iterations = 0;
-  var pot_copy = pot;
-  while (pot_copy.length > 0 && iterations < 25) {
-    iterations += 1;
-    // console.log(iterations)
-    var team_index = Math.floor(Math.random() * pot_copy.length);
-    var team = pot_copy[team_index];
-    var conf = team[3];
-    for (var ix = 0; ix < groups.length; ix = ix + 1) {
-      var cur_group = groups[ix];
-      if (checkGroupAvailability(cur_group, conf, pot_number)) {
-        pot_copy.splice(team_index, 1);
-        cur_group.push(team);
-        break;
-      }
-    }
-  }
-  if (iterations == 25) {
-    // console.log("returning false")
-    return false;
-  }
 }
 
 export function populateThirdPlaceColumn() {
@@ -218,30 +187,7 @@ function updateGroups() {
   populateThirdPlaceColumn();
 }
 
-function callDrawFunctionUntilFinished() {
-  var not_finished = true;
-  while (not_finished) {
-    for (
-      var pot_index = 0;
-      pot_index < pots.length;
-      pot_index = pot_index + 1
-    ) {
-      var result = drawFromPot(pots[pot_index], pot_index);
-      if (result == false) {
-        not_finished = false;
-        console.log("Drawing did not work");
-        window.location.reload();
-        return false;
-      }
-    }
-    not_finished = false;
-  }
-  return true;
-}
-
-// callDrawFunctionUntilFinished();
-
-updateGroups();
+// updateGroups();
 
 var flags = document.querySelectorAll(".flag");
 
@@ -261,9 +207,9 @@ async function changeFlagImage(element) {
   } catch (err) {}
 }
 
-flags.forEach((flag) => {
-  changeFlagImage(flag);
-});
+// flags.forEach((flag) => {
+//   changeFlagImage(flag);
+// });
 
 var tooltips = document.querySelectorAll(".tooltip");
 tooltips.forEach((tooltip) => {
