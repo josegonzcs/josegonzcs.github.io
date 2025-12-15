@@ -66,17 +66,7 @@ var predicted_playoff_teams = [
   inter_2,
 ];
 
-var continue_button = document.getElementById("continue");
-
-continue_button.addEventListener("click", () => {
-  var chosen_playoff_teams = document.getElementsByClassName("chosen");
-  for (var i = 0; i < predicted_playoff_teams.length; i += 1) {
-    predicted_playoff_teams[i] = chosen_playoff_teams[i].name;
-  }
-  console.log(predicted_playoff_teams);
-});
-
-var group_A = ["Mexico", "South Africa", "Korea Republic", uefa_d];
+var group_A = ["Mexico", "South Africa", "South Korea", uefa_d];
 var group_B = ["Canada", uefa_a, "Qatar", "Switzerland"];
 var group_C = ["Brazil", "Morocco", "Haiti", "Scotland"];
 var group_D = ["USA", "Paraguay", "Australia", uefa_c];
@@ -87,7 +77,7 @@ var group_H = ["Spain", "Cape Verde", "Saudi Arabia", "Uruguay"];
 var group_I = ["France", "Senegal", inter_2, "Norway"];
 var group_J = ["Argentina", "Algeria", "Austria", "Jordan"];
 var group_K = ["Portugal", inter_1, "Uzbekistan", "Colombia"];
-var group_L = ["England", "Croatia", , "Panama", "Ghana"];
+var group_L = ["England", "Croatia", "Panama", "Ghana"];
 
 var groups = [
   group_A,
@@ -103,10 +93,6 @@ var groups = [
   group_K,
   group_L,
 ];
-
-for (var i = 0; i < groups.length; i += 1) {
-  // add
-}
 
 export function populateThirdPlaceColumn() {
   var group_elements = document.querySelectorAll(
@@ -157,7 +143,6 @@ export function populateThirdPlaceColumn() {
 
   for (var ix = 0; ix < 12; ix = ix + 1) {
     for (var jx = 0; jx < 12; jx = jx + 1) {
-      // console.log(container.children[jx].getAttribute("group"));
       if (
         container.children[jx].children[0].getAttribute("group") ==
         group_names[ix]
@@ -172,56 +157,108 @@ function updateGroups() {
   var group_elements = document.querySelectorAll(
     ".group-container:not(.thirdplace-column)"
   );
-  for (var ix = 0; ix < group_elements.length; ix = ix + 1) {
+  console.log(group_elements);
+
+  for (var ix = 0; ix < group_elements.length; ix += 1) {
     var group_element = group_elements[ix];
-    for (var jx = 0; jx < group_element.children.length; jx = jx + 1) {
+    for (var jx = 0; jx < group_element.children.length; jx += 1) {
       var element = group_element.children[jx];
-      var team_code = groups[ix][jx][2];
+      var team_code = groups[ix][jx][1];
+      console.log(team_code);
+      element.children[0].textContent = team_code;
       element.children[0].setAttribute("value", team_code);
-      element.children[0].setAttribute("country", groups[ix][jx][4]);
-      element.children[0].setAttribute("rank", groups[ix][jx][0]);
+      element.children[0].setAttribute("country", groups[ix][jx][0]);
+      element.children[0].setAttribute("rank", groups[ix][jx][2]);
       element.children[0].setAttribute("group", element.getAttribute("id"));
     }
   }
 
   populateThirdPlaceColumn();
+
+  setImages();
 }
 
-// updateGroups();
-
-var flags = document.querySelectorAll(".flag");
-
-async function changeFlagImage(element) {
-  var placeholder_flag = "images/placeholder_flag.png";
-  var file = element.previousElementSibling.getAttribute("value");
-  file = "images/" + file + ".png";
-
-  try {
-    const response = await fetch(file);
-
-    if (!response.ok) {
-      element.src = placeholder_flag;
-    } else {
-      element.src = file;
+function findTeamInRankings(team_name) {
+  for (var index = 0; index < rankings.length; index += 1) {
+    if (rankings[index][0][4] == team_name) {
+      return rankings[index][0];
     }
-  } catch (err) {}
+  }
 }
 
-// flags.forEach((flag) => {
-//   changeFlagImage(flag);
-// });
+function addTeamInfo() {
+  for (var group_index = 0; group_index < groups.length; group_index += 1) {
+    for (
+      var team_index = 0;
+      team_index < groups[group_index].length;
+      team_index += 1
+    ) {
+      var team_name = groups[group_index][team_index];
+      var team_info_arr = findTeamInRankings(team_name);
+      console.log(team_name, team_info_arr);
+      var team_code = team_info_arr[2];
+      var ranking = team_info_arr[0];
+      groups[group_index][team_index] = [team_name, team_code, ranking];
+    }
+  }
+  console.log(groups);
 
-var tooltips = document.querySelectorAll(".tooltip");
-tooltips.forEach((tooltip) => {
-  var name = document.createElement("span");
-  var rank = document.createElement("span");
-  name.textContent =
-    tooltip.previousElementSibling.previousElementSibling.getAttribute(
-      "country"
-    );
-  rank.textContent =
-    "Rank: " +
-    tooltip.previousElementSibling.previousElementSibling.getAttribute("rank");
-  tooltip.appendChild(name);
-  tooltip.appendChild(rank);
+  updateGroups();
+}
+
+var continue_button = document.getElementById("continue");
+
+continue_button.addEventListener("click", () => {
+  var chosen_playoff_teams = document.getElementsByClassName("chosen");
+  group_B[1] = chosen_playoff_teams[0].name;
+  group_F[2] = chosen_playoff_teams[1].name;
+  group_D[3] = chosen_playoff_teams[2].name;
+  group_A[3] = chosen_playoff_teams[3].name;
+  group_K[1] = chosen_playoff_teams[4].name;
+  group_I[2] = chosen_playoff_teams[5].name;
+
+  addTeamInfo();
+  //call function that adds team codes to every group
+  // same function calls to update group elements and
 });
+
+function setImages() {
+  var flags = document.querySelectorAll(".flag");
+
+  async function changeFlagImage(element) {
+    var placeholder_flag = "images/placeholder_flag.png";
+    var file = element.previousElementSibling.getAttribute("value");
+    file = "images/" + file + ".png";
+
+    try {
+      const response = await fetch(file);
+
+      if (!response.ok) {
+        element.src = placeholder_flag;
+      } else {
+        element.src = file;
+      }
+    } catch (err) {}
+  }
+
+  flags.forEach((flag) => {
+    changeFlagImage(flag);
+  });
+
+  var tooltips = document.querySelectorAll(".tooltip");
+  tooltips.forEach((tooltip) => {
+    var name = document.createElement("span");
+    var rank = document.createElement("span");
+    name.textContent =
+      tooltip.previousElementSibling.previousElementSibling.getAttribute(
+        "country"
+      );
+    rank.textContent =
+      "Rank: " +
+      tooltip.previousElementSibling.previousElementSibling.getAttribute(
+        "rank"
+      );
+    tooltip.appendChild(name);
+    tooltip.appendChild(rank);
+  });
+}
