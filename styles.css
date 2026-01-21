@@ -243,10 +243,11 @@ body {
 
   .key {
     width: 140px;
+    font-family: Verdana;
     font-size: 7pt;
     color: rgb(255, 255, 255, 0.8);
     text-align: left;
-    margin-left: 15px;
+    margin-left: 35px;
   }
 
   .bracket {
