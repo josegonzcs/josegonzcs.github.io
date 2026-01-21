@@ -31,7 +31,8 @@ groups.forEach((group) => {
 
 groups.forEach((group) => {
   group.addEventListener("touchmove", (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+
     var touchLocation = e.targetTouches[0];
 
     const afterElement = getDragAfterElement(group, touchLocation.clientY);

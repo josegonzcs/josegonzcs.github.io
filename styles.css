@@ -83,8 +83,6 @@ body {
 .team.dragging {
   opacity: 25%;
   background-color: rgb(88, 88, 88);
-  /* border: solid black 1px; */
-  cursor: grab;
 }
 
 @media (min-width: 502px) {
@@ -117,21 +115,22 @@ body {
     margin: 5px;
     width: fit-content;
     height: fit-content;
-    color: rgb(255, 255, 255, 0.8);
+    color: white;
     border-radius: 7px;
     font-family: Verdana;
   }
 
   .team {
-    height: 2rem;
+    height: 32px;
     width: 140px;
     background-color: #222222;
-    cursor: default;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 2px 2px 0 0;
-    padding-right: 2px;
+    padding: 2px 0 2px 0;
+    border-top: 1px solid rgb(50, 50, 50);
+    color: rgb(255, 255, 255, 0.8);
+    cursor: grab;
   }
 
   .team:hover {
@@ -144,6 +143,24 @@ body {
     visibility: visible;
     opacity: 90%;
     transition: opacity 300ms ease-in-out 1300ms;
+  }
+
+  .markers {
+    position: absolute;
+    height: 2px;
+    width: 148px;
+    margin-top: 146px;
+    margin-left: 15px;
+    background-color: red;
+  }
+
+  .key-marker {
+    position: absolute;
+    height: 4px;
+    width: 4px;
+    margin-left: -10px;
+    margin-top: -15px;
+    background-color: red;
   }
 
   .tooltip {
@@ -188,12 +205,13 @@ body {
   .flag {
     width: 40px;
     border: 2px solid;
-    border-color: black;
     border-radius: 3px;
+    border-color: black;
   }
 
   .small-flag {
-    width: 40px;
+    height: 27px;
+    width: 36px;
     border: 2px solid;
     border-radius: 3px;
     border-color: black;
@@ -218,9 +236,17 @@ body {
     justify-content: center;
     background-color: #222222;
     padding: 0.3rem;
-    margin: 0.3rem;
+    margin: 5px 5px 5px 20px;
     width: fit-content;
     height: fit-content;
+  }
+
+  .key {
+    width: 140px;
+    font-size: 7pt;
+    color: rgb(255, 255, 255, 0.8);
+    text-align: left;
+    margin-left: 15px;
   }
 
   .bracket {
@@ -242,8 +268,8 @@ body {
   }
 
   .box {
-    height: 2rem;
-    width: 5.5rem;
+    height: min-content;
+    width: min-content;
     border: solid 1px grey;
     border-radius: 5px;
     margin-top: 5%;
@@ -309,7 +335,6 @@ body {
     /* width: 6rem; */
     width: 100%;
     margin: 0.5vh;
-    cursor: default;
     flex-direction: row;
     justify-content: space-around;
     border-top-right-radius: 10%;
