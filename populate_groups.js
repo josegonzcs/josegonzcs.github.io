@@ -164,10 +164,11 @@ function updateGroups() {
     for (var jx = 0; jx < group_element.children.length; jx += 1) {
       var element = group_element.children[jx];
       var team_code = groups[ix][jx][1];
+      var country = groups[ix][jx][0];
       console.log(team_code);
-      element.children[0].textContent = team_code;
+      element.children[0].textContent = country;
       element.children[0].setAttribute("value", team_code);
-      element.children[0].setAttribute("country", groups[ix][jx][0]);
+      element.children[0].setAttribute("country", country);
       element.children[0].setAttribute("rank", groups[ix][jx][2]);
       element.children[0].setAttribute("group", element.getAttribute("id"));
     }
