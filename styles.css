@@ -85,7 +85,7 @@ body {
 }
 
 .chosen {
-  /* border: 4px solid green; */
+  border: 4px solid green;
   opacity: 100%;
 }
 
@@ -130,6 +130,13 @@ body {
   visibility: visible;
   opacity: 90%;
   transition: opacity 300ms ease-in-out 1300ms;
+}
+
+.ko-match {
+  font-family: Verdana;
+  color: rgb(255, 255, 255, 0.8);
+  text-align: center;
+  font-size: 8pt;
 }
 
 @media (min-width: 502px) {

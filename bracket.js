@@ -59,7 +59,7 @@ var top8ThirplaceNextMatch = ["79", "85", "81", "74", "82", "77", "87", "80"];
 // 1Lopponent
 
 var group_elements = document.querySelectorAll(
-  ".group-container:not(.thirdplace-column)"
+  ".group-container:not(.thirdplace-column)",
 );
 
 function seedTeam(team, nextMatchId, option) {
@@ -68,7 +68,7 @@ function seedTeam(team, nextMatchId, option) {
   ];
   ko_team.setAttribute(
     "src",
-    `images/${team.children[0].getAttribute("value")}.png`
+    `images/${team.children[0].getAttribute("value")}.png`,
   );
   ko_team.setAttribute("value", team.children[0].getAttribute("value"));
 }
@@ -102,7 +102,7 @@ function seedRunnersUp() {
     seedTeam(
       group_runnersup[ix],
       groupRunnerupNextMatch[ix],
-      groupRunnerupNextMatchOption[ix]
+      groupRunnerupNextMatchOption[ix],
     );
   }
 }
@@ -113,9 +113,9 @@ function seedThirdPlaceTeams() {
   var matchup = matchups.get(top8);
 
   // Create a sorted string from the 8 groups
-  // console.log(top8);
+  console.log(top8);
   // Find the matching matchup array
-  // console.log(matchup);
+  console.log(matchup);
   // Call a function that correctly populates the bracket matchups
 
   // loop through matchup array
