@@ -133,10 +133,24 @@ body {
 }
 
 .ko-match {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: Verdana;
   color: rgb(255, 255, 255, 0.8);
   text-align: center;
   font-size: 8pt;
+}
+
+.ko-match:hover {
+  color: rgba(255, 255, 255);
+  text-decoration: underline;
+  cursor: default;
+}
+
+.match-header {
+  width: max-content;
+  cursor: pointer;
 }
 
 @media (min-width: 502px) {
