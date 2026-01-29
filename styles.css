@@ -185,7 +185,7 @@ body {
     position: absolute;
     height: 2px;
     width: 148px;
-    margin-top: 167px; /*147px if showing both groups and bracket, 167px otherwise*/
+    margin-top: 147px; /*147px if showing both groups and bracket, 167px otherwise*/
     margin-left: 15px;
     background-color: red;
   }
