@@ -164,8 +164,8 @@ var btn = document.getElementById("populateBracket");
 btn.addEventListener("click", () => {
   populateBracket();
 
-  document.querySelector(".groupstage-container").style.display = "none";
-  document.getElementById("populateBracket").style.display = "none";
+  // document.querySelector(".groupstage-container").style.display = "none";
+  // document.getElementById("populateBracket").style.display = "none";
 
   document.querySelector(".bracket").style.display = "flex";
 });
@@ -219,14 +219,16 @@ bracket_teams.forEach((team) => {
    grab the information about the match like, match name, teams, team ranks, location 
 */
 function openModal() {
-  console.log("clickity click");
-
   const modal = document.getElementById("modal");
 
   modal.style.display = "flex";
   modal.style.position = "absolute";
   modal.style.justifyContent = "center";
   modal.style.alignItems = "center";
+
+  document.body.addEventListener("mouseup", () => {
+    document.querySelector(".modal").style.display = "none";
+  });
 }
 
 // grab every element with the class match-header

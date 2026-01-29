@@ -1,15 +1,62 @@
 html {
+  height: 100%;
   width: 100%;
+}
+
+header {
+  font-family: Verdana;
+  font-size: x-large;
+  font-weight: bolder;
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 body {
   height: 100%;
+  /* height: max-content; */
   /* width: min-content; */
   min-width: fit-content;
   margin: 0;
   background-color: black;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer {
+  width: 100%;
+  color: rgb(255, 255, 255, 0.7);
+  font-family: monospace;
+  font-size: 8pt;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
+  padding: 10px 0 10px 10px;
+}
+
+a {
+  width: 1px;
+}
+
+svg {
+  margin: 10px;
+  fill: rgb(255, 255, 255, 0.7);
+}
+
+svg:hover {
+  fill: rgb(255, 255, 255);
 }
 
 .world-cup {
@@ -25,6 +72,7 @@ body {
   height: 100%;
   color: white;
   z-index: 1000;
+  background-color: rgb(255, 255, 255, 0.3);
 }
 
 .pots-container {
@@ -159,7 +207,8 @@ body {
   cursor: pointer;
 }
 
-@media (min-width: 502px) {
+/* @media (min-width: 502px) { */
+@media (min-width: 1px) {
   .groupstage-container {
     display: flex;
     flex-direction: row;
@@ -251,10 +300,6 @@ body {
     border: 2px solid;
     border-radius: 3px;
     border-color: black;
-  }
-
-  .chosen {
-    /* border-color: green; */
   }
 
   .thirdplace-container {
