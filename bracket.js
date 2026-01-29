@@ -163,6 +163,11 @@ function populateBracket() {
 var btn = document.getElementById("populateBracket");
 btn.addEventListener("click", () => {
   populateBracket();
+
+  document.querySelector(".groupstage-container").style.display = "none";
+  document.getElementById("populateBracket").style.display = "none";
+
+  document.querySelector(".bracket").style.display = "flex";
 });
 
 function highlightChosenTeam(matchid, option, nextMatchID, nextOption) {

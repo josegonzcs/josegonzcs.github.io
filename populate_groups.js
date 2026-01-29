@@ -96,7 +96,7 @@ var groups = [
 
 export function populateThirdPlaceColumn() {
   var group_elements = document.querySelectorAll(
-    ".group-container:not(.thirdplace-column)"
+    ".group-container:not(.thirdplace-column)",
   );
   var thirdplace_teams = [];
 
@@ -155,7 +155,7 @@ export function populateThirdPlaceColumn() {
 
 function updateGroups() {
   var group_elements = document.querySelectorAll(
-    ".group-container:not(.thirdplace-column)"
+    ".group-container:not(.thirdplace-column)",
   );
   console.log(group_elements);
 
@@ -211,6 +211,9 @@ var continue_button = document.getElementById("continue");
 
 continue_button.addEventListener("click", () => {
   var chosen_playoff_teams = document.getElementsByClassName("chosen");
+  if (chosen_playoff_teams.length < 6) {
+    return;
+  }
   group_B[1] = chosen_playoff_teams[0].name;
   group_F[2] = chosen_playoff_teams[1].name;
   group_D[3] = chosen_playoff_teams[2].name;
@@ -221,6 +224,12 @@ continue_button.addEventListener("click", () => {
   addTeamInfo();
   //call function that adds team codes to every group
   // same function calls to update group elements and
+  document.querySelector(".playoff-matches").style.display = "none";
+  document.getElementById("continue").style.display = "none";
+
+  document.querySelector(".groupstage-container").style.display = "flex";
+  document.getElementById("populateBracket").style.display = "flex";
+  document.querySelector(".bracket").style.display = "flex";
 });
 
 function setImages() {
@@ -252,12 +261,12 @@ function setImages() {
     var rank = document.createElement("span");
     name.textContent =
       tooltip.previousElementSibling.previousElementSibling.getAttribute(
-        "country"
+        "country",
       );
     rank.textContent =
       "Rank: " +
       tooltip.previousElementSibling.previousElementSibling.getAttribute(
-        "rank"
+        "rank",
       );
     tooltip.appendChild(name);
     tooltip.appendChild(rank);
