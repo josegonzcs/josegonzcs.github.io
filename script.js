@@ -31,7 +31,7 @@ groups.forEach((group) => {
 
 groups.forEach((group) => {
   group.addEventListener("touchmove", (e) => {
-    // e.preventDefault();
+    e.preventDefault();
 
     var touchLocation = e.targetTouches[0];
 
@@ -92,6 +92,6 @@ function getDragAfterElement(group, y) {
         return closest;
       }
     },
-    { offset: Number.NEGATIVE_INFINITY }
+    { offset: Number.NEGATIVE_INFINITY },
   ).element;
 }
