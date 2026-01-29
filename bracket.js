@@ -209,3 +209,28 @@ bracket_teams.forEach((team) => {
     highlightChosenTeam(m, o, n, p);
   });
 });
+
+/* write onclick function which would create a modal and
+   grab the information about the match like, match name, teams, team ranks, location 
+*/
+function openModal() {
+  console.log("clickity click");
+
+  const modal = document.getElementById("modal");
+
+  modal.style.display = "flex";
+  modal.style.position = "absolute";
+  modal.style.justifyContent = "center";
+  modal.style.alignItems = "center";
+}
+
+// grab every element with the class match-header
+var match_headers = document.querySelectorAll(".match-header");
+console.log(match_headers);
+
+// apply a click event listener
+match_headers.forEach((e) => {
+  e.addEventListener("click", () => {
+    openModal();
+  });
+});
