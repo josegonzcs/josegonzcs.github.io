@@ -71,6 +71,8 @@ function seedTeam(team, nextMatchId, option) {
     `images/${team.children[0].getAttribute("value")}.png`,
   );
   ko_team.setAttribute("value", team.children[0].getAttribute("value"));
+  ko_team.setAttribute("country", team.children[0].getAttribute("country"));
+  ko_team.setAttribute("rank", team.children[0].getAttribute("rank"));
 }
 
 function seedGroupWinners() {
@@ -113,9 +115,9 @@ function seedThirdPlaceTeams() {
   var matchup = matchups.get(top8);
 
   // Create a sorted string from the 8 groups
-  console.log(top8);
+  // console.log(top8);
   // Find the matching matchup array
-  console.log(matchup);
+  // console.log(matchup);
   // Call a function that correctly populates the bracket matchups
 
   // loop through matchup array
@@ -233,7 +235,7 @@ function openModal() {
 
 // grab every element with the class match-header
 var match_headers = document.querySelectorAll(".match-header");
-console.log(match_headers);
+// console.log(match_headers);
 
 // apply a click event listener
 match_headers.forEach((e) => {

@@ -300,6 +300,7 @@ svg:hover {
     border: 2px solid;
     border-radius: 3px;
     border-color: black;
+    cursor: pointer;
   }
 
   .thirdplace-container {
@@ -362,7 +363,7 @@ svg:hover {
     width: 20px;
     margin-top: 10px;
     margin-right: 10px;
-    border: 3px solid rgb(77, 77, 77);
+    border: 2px solid rgb(77, 77, 77);
     border-left: 0;
     border-radius: 0 10px 10px 0;
   }
@@ -386,7 +387,7 @@ svg:hover {
     width: 20px;
     margin-top: 10px;
     margin-left: 10px;
-    border: 3px solid rgb(77, 77, 77);
+    border: 2px solid rgb(77, 77, 77);
     border-right: 0;
     border-radius: 10px 0 0 10px;
   }

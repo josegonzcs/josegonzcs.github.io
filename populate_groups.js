@@ -157,7 +157,7 @@ function updateGroups() {
   var group_elements = document.querySelectorAll(
     ".group-container:not(.thirdplace-column)",
   );
-  console.log(group_elements);
+  // console.log(group_elements);
 
   for (var ix = 0; ix < group_elements.length; ix += 1) {
     var group_element = group_elements[ix];
@@ -165,7 +165,7 @@ function updateGroups() {
       var element = group_element.children[jx];
       var team_code = groups[ix][jx][1];
       var country = groups[ix][jx][0];
-      console.log(team_code);
+      // console.log(team_code);
       element.children[0].textContent = country;
       element.children[0].setAttribute("value", team_code);
       element.children[0].setAttribute("country", country);
@@ -196,13 +196,13 @@ function addTeamInfo() {
     ) {
       var team_name = groups[group_index][team_index];
       var team_info_arr = findTeamInRankings(team_name);
-      console.log(team_name, team_info_arr);
+      // console.log(team_name, team_info_arr);
       var team_code = team_info_arr[2];
       var ranking = team_info_arr[0];
       groups[group_index][team_index] = [team_name, team_code, ranking];
     }
   }
-  console.log(groups);
+  // console.log(groups);
 
   updateGroups();
 }
