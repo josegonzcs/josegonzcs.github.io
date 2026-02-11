@@ -25,6 +25,37 @@
       </div>
     </header>
     <div class="world-cup">
+      <div id="modal-container" class="modal-container" style="display: none">
+        <div id="modal" class="modal" style="flex-direction: column">
+          <div style="text-align: center">
+            <h1 id="modal-round">Round</h1>
+            <h3 id="modal-matchid">Match id</h3>
+            <h3 id="modal-date">Date</h3>
+            <h3 id="modal-stadium">Stadium</h3>
+          </div>
+          <div style="display: flex; flex-direction: row">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 10px;
+              "
+            >
+              <img class="small-flag" src="images/placeholder_flag.png" />
+              <h3>Team 1</h3>
+              <h3>Rank</h3>
+            </div>
+            <div
+              style="display: flex; flex-direction: column; align-items: center"
+            >
+              <img class="small-flag" src="images/placeholder_flag.png" />
+              <h3>Team 2</h3>
+              <h3>Rank</h3>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="playoff-matches" style="display: flex">
         <div class="playoff-path" id="uefa_a">
           <div class="playoff-header">
@@ -590,39 +621,6 @@
       <button id="populateBracket" style="display: none">CONTINUE</button>
 
       <div class="bracket" style="display: none">
-        <div
-          id="modal"
-          class="modal"
-          style="display: none; flex-direction: column"
-        >
-          <div style="text-align: center">
-            <h1 id="modal-round">Round</h1>
-            <h3 id="modal-matchid">Match id</h3>
-            <h3 id="modal-date">Date</h3>
-            <h3 id="modal-stadium">Stadium</h3>
-          </div>
-          <div style="display: flex; flex-direction: row">
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin-right: 10px;
-              "
-            >
-              <img class="small-flag" src="images/placeholder_flag.png" />
-              <h3>Team 1</h3>
-              <h3>Rank</h3>
-            </div>
-            <div
-              style="display: flex; flex-direction: column; align-items: center"
-            >
-              <img class="small-flag" src="images/placeholder_flag.png" />
-              <h3>Team 2</h3>
-              <h3>Rank</h3>
-            </div>
-          </div>
-        </div>
         <div class="round-of-32 knockout-round">
           <div class="ko-match">
             <!-- Ro.32 2 -->

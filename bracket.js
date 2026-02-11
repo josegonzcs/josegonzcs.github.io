@@ -220,15 +220,36 @@ bracket_teams.forEach((team) => {
 /* write onclick function which would create a modal and
    grab the information about the match like, match name, teams, team ranks, location 
 */
-function openModal() {
+function openModal(element) {
+  console.log(element);
+  console.log(element.getAttribute("round"));
+  console.log(element.getAttribute("matchid"));
+  console.log(element.getAttribute("date"));
+  console.log(element.getAttribute("time"));
+  console.log(element.getAttribute("stadium"));
+  console.log(element.childNodes[1].getAttribute("country"));
+  console.log(element.childNodes[1].getAttribute("value"));
+  console.log(element.childNodes[1].getAttribute("rank"));
+  console.log(element.childNodes[3].getAttribute("country"));
+  console.log(element.childNodes[3].getAttribute("value"));
+  console.log(element.childNodes[3].getAttribute("rank"));
+
   const modal = document.getElementById("modal");
 
-  modal.style.display = "flex";
-
+  document.getElementById("modal-container").style.display = "flex";
   modal.class = "modal";
 
+  document.getElementById("modal-round").textContent =
+    element.getAttribute("round");
+  document.getElementById("modal-matchid").textContent =
+    "Match " + element.getAttribute("matchid");
+  document.getElementById("modal-date").textContent =
+    element.getAttribute("date") + " " + element.getAttribute("time");
+  document.getElementById("modal-stadium").textContent =
+    element.getAttribute("stadium");
+
   document.body.addEventListener("mouseup", () => {
-    document.querySelector(".modal").style.display = "none";
+    document.querySelector(".modal-container").style.display = "none";
   });
 }
 
@@ -239,6 +260,6 @@ var match_headers = document.querySelectorAll(".match-header");
 // apply a click event listener
 match_headers.forEach((e) => {
   e.addEventListener("click", () => {
-    openModal();
+    openModal(e.nextElementSibling);
   });
 });
