@@ -25,7 +25,6 @@
       </div>
     </header>
     <div class="world-cup">
-      <div id="modal" class="modal" style="display: none">This is a modal</div>
       <div class="playoff-matches" style="display: flex">
         <div class="playoff-path" id="uefa_a">
           <div class="playoff-header">
@@ -34,7 +33,7 @@
           <div class="playoff-teams">
             <div class="playoff-team">
               <img
-                class="playoff-img"
+                class="playoff-img chosen"
                 src="images/ITA.png"
                 id="uefa_a_1"
                 name="Italy"
@@ -73,7 +72,7 @@
           <div class="playoff-teams">
             <div class="playoff-team">
               <img
-                class="playoff-img"
+                class="playoff-img chosen"
                 src="images/UKR.png"
                 name="Ukraine"
               />UKRAINE
@@ -108,7 +107,7 @@
           <div class="playoff-teams">
             <div class="playoff-team">
               <img
-                class="playoff-img"
+                class="playoff-img chosen"
                 src="images/TUR.png"
                 name="Turkiye"
               />TURKEY
@@ -143,7 +142,7 @@
           <div class="playoff-teams">
             <div class="playoff-team">
               <img
-                class="playoff-img"
+                class="playoff-img chosen"
                 src="images/DEN.png"
                 name="Denmark"
               />DENMARK
@@ -178,7 +177,7 @@
           <div class="playoff-teams">
             <div class="playoff-team">
               <img
-                class="playoff-img"
+                class="playoff-img chosen"
                 src="images/COD.png"
                 name="DR Congo"
               />DR&nbsp;CONGO
@@ -205,7 +204,11 @@
           </div>
           <div class="playoff-teams">
             <div class="playoff-team">
-              <img class="playoff-img" src="images/IRQ.png" name="Iraq" />IRAQ
+              <img
+                class="playoff-img chosen"
+                src="images/IRQ.png"
+                name="Iraq"
+              />IRAQ
             </div>
             <div class="playoff-team">
               <img
@@ -587,6 +590,39 @@
       <button id="populateBracket" style="display: none">CONTINUE</button>
 
       <div class="bracket" style="display: none">
+        <div
+          id="modal"
+          class="modal"
+          style="display: none; flex-direction: column"
+        >
+          <div style="text-align: center">
+            <h1 id="modal-round">Round</h1>
+            <h3 id="modal-matchid">Match id</h3>
+            <h3 id="modal-date">Date</h3>
+            <h3 id="modal-stadium">Stadium</h3>
+          </div>
+          <div style="display: flex; flex-direction: row">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 10px;
+              "
+            >
+              <img class="small-flag" src="images/placeholder_flag.png" />
+              <h3>Team 1</h3>
+              <h3>Rank</h3>
+            </div>
+            <div
+              style="display: flex; flex-direction: column; align-items: center"
+            >
+              <img class="small-flag" src="images/placeholder_flag.png" />
+              <h3>Team 2</h3>
+              <h3>Rank</h3>
+            </div>
+          </div>
+        </div>
         <div class="round-of-32 knockout-round">
           <div class="ko-match">
             <!-- Ro.32 2 -->

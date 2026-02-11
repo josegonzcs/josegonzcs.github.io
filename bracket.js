@@ -224,9 +224,8 @@ function openModal() {
   const modal = document.getElementById("modal");
 
   modal.style.display = "flex";
-  modal.style.position = "absolute";
-  modal.style.justifyContent = "center";
-  modal.style.alignItems = "center";
+
+  modal.class = "modal";
 
   document.body.addEventListener("mouseup", () => {
     document.querySelector(".modal").style.display = "none";
