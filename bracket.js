@@ -229,10 +229,21 @@ function openModal(element) {
   console.log(element.getAttribute("stadium"));
   console.log(element.childNodes[1].getAttribute("country"));
   console.log(element.childNodes[1].getAttribute("value"));
+  const team1_code = element.childNodes[1].getAttribute("value");
+  const team2_code = element.childNodes[3].getAttribute("value");
+
+  const team1_name = element.childNodes[1].getAttribute("country");
+  const team2_name = element.childNodes[3].getAttribute("country");
+
+  const team1_rank = element.childNodes[1].getAttribute("rank");
+  const team2_rank = element.childNodes[3].getAttribute("rank");
+
   console.log(element.childNodes[1].getAttribute("rank"));
   console.log(element.childNodes[3].getAttribute("country"));
   console.log(element.childNodes[3].getAttribute("value"));
   console.log(element.childNodes[3].getAttribute("rank"));
+
+  console.log("should say winner", element.getAttribute("team1"));
 
   const modal = document.getElementById("modal");
 
@@ -244,9 +255,45 @@ function openModal(element) {
   document.getElementById("modal-matchid").textContent =
     "Match " + element.getAttribute("matchid");
   document.getElementById("modal-date").textContent =
-    element.getAttribute("date") + " " + element.getAttribute("time");
+    element.getAttribute("date");
+  document.getElementById("modal-time").textContent =
+    element.getAttribute("time");
   document.getElementById("modal-stadium").textContent =
     element.getAttribute("stadium");
+
+  if (team1_code != null && team2_code != null) {
+    document
+      .getElementById("modal-team1")
+      .setAttribute("src", "images/" + team1_code + ".png");
+    document
+      .getElementById("modal-team2")
+      .setAttribute("src", "images/" + team2_code + ".png");
+  } else {
+    document
+      .getElementById("modal-team1")
+      .setAttribute("src", "images/placeholder_flag.png");
+    document
+      .getElementById("modal-team2")
+      .setAttribute("src", "images/placeholder_flag.png");
+  }
+
+  if (team1_name != null && team2_name != null) {
+    document.getElementById("modal-team1-name").textContent = team1_name;
+    document.getElementById("modal-team2-name").textContent = team2_name;
+  } else {
+    document.getElementById("modal-team1-name").textContent =
+      element.getAttribute("team1");
+    document.getElementById("modal-team2-name").textContent =
+      element.getAttribute("team2");
+  }
+
+  if (team1_rank != null && team2_rank != null) {
+    document.getElementById("modal-team1-rank").textContent = team1_rank;
+    document.getElementById("modal-team2-rank").textContent = team2_rank;
+  } else {
+    document.getElementById("modal-team1-rank").textContent = "";
+    document.getElementById("modal-team2-rank").textContent = "";
+  }
 
   document.body.addEventListener("mouseup", () => {
     document.querySelector(".modal-container").style.display = "none";

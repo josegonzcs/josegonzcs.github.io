@@ -31,27 +31,50 @@
             <h1 id="modal-round">Round</h1>
             <h3 id="modal-matchid">Match id</h3>
             <h3 id="modal-date">Date</h3>
+            <h3 id="modal-time">Time</h3>
             <h3 id="modal-stadium">Stadium</h3>
           </div>
-          <div style="display: flex; flex-direction: row">
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              width: 100%;
+              justify-content: space-between;
+              text-align: center;
+            "
+          >
             <div
               style="
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin-right: 10px;
+                width: 135px;
+                text-align: center;
               "
             >
-              <img class="small-flag" src="images/placeholder_flag.png" />
-              <h3>Team 1</h3>
-              <h3>Rank</h3>
+              <img
+                id="modal-team1"
+                class="small-flag"
+                src="images/placeholder_flag.png"
+              />
+              <h3 id="modal-team1-name">Team 1</h3>
+              <h3 id="modal-team1-rank">Rank</h3>
             </div>
             <div
-              style="display: flex; flex-direction: column; align-items: center"
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 135px;
+              "
             >
-              <img class="small-flag" src="images/placeholder_flag.png" />
-              <h3>Team 2</h3>
-              <h3>Rank</h3>
+              <img
+                id="modal-team2"
+                class="small-flag"
+                src="images/placeholder_flag.png"
+              />
+              <h3 id="modal-team2-name">Team 2</h3>
+              <h3 id="modal-team2-rank">Rank</h3>
             </div>
           </div>
         </div>
