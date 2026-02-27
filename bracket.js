@@ -114,12 +114,6 @@ function seedThirdPlaceTeams() {
   var top8 = topThirdPlaceTeams().sort().join("");
   var matchup = matchups.get(top8);
 
-  // Create a sorted string from the 8 groups
-  // console.log(top8);
-  // Find the matching matchup array
-  // console.log(matchup);
-  // Call a function that correctly populates the bracket matchups
-
   // loop through matchup array
   for (var ix = 0; ix < matchup.length; ix += 1) {
     var matchup_group = matchup[ix];
@@ -144,9 +138,15 @@ function removeFlag(matchid, flag) {
     ) {
       t.setAttribute("src", "images/placeholder_flag.png");
       t.classList.remove("chosen");
+      t.removeAttribute("country");
+      t.removeAttribute("rank");
+      t.removeAttribute("value");
     } else if (matchid == -1) {
       t.setAttribute("src", "images/placeholder_flag.png");
       t.classList.remove("chosen");
+      t.removeAttribute("country");
+      t.removeAttribute("rank");
+      t.removeAttribute("value");
     }
   }
 }
@@ -189,10 +189,13 @@ function highlightChosenTeam(matchid, option, nextMatchID, nextOption) {
   }
 
   var nextMatch = document.querySelector(`[matchid='${nextMatchID}']`);
-  nextMatch.children[nextOption].setAttribute("src", winning_team_flag);
-  nextMatch.children[nextOption].setAttribute("country", winning_team_name); // add team's name
-  nextMatch.children[nextOption].setAttribute("rank", winning_team_rank); // add team's rank
-  nextMatch.children[nextOption].setAttribute("value", winning_team_value); // add team's value
+
+  if (winning_team_flag != "images/placeholder_flag.png") {
+    nextMatch.children[nextOption].setAttribute("src", winning_team_flag);
+    nextMatch.children[nextOption].setAttribute("country", winning_team_name); // add team's name
+    nextMatch.children[nextOption].setAttribute("rank", winning_team_rank); // add team's rank
+    nextMatch.children[nextOption].setAttribute("value", winning_team_value); // add team's value
+  }
 
   if (!team_flag.classList.contains("chosen")) {
     // find every other instance of the flag and change it to the default flag
@@ -227,14 +230,6 @@ bracket_teams.forEach((team) => {
    grab the information about the match like, match name, teams, team ranks, location 
 */
 function openModal(element) {
-  console.log(element);
-  console.log(element.getAttribute("round"));
-  console.log(element.getAttribute("matchid"));
-  console.log(element.getAttribute("date"));
-  console.log(element.getAttribute("time"));
-  console.log(element.getAttribute("stadium"));
-  console.log(element.childNodes[1].getAttribute("country"));
-  console.log(element.childNodes[1].getAttribute("value"));
   const team1_code = element.childNodes[1].getAttribute("value");
   const team2_code = element.childNodes[3].getAttribute("value");
 
@@ -243,13 +238,6 @@ function openModal(element) {
 
   const team1_rank = element.childNodes[1].getAttribute("rank");
   const team2_rank = element.childNodes[3].getAttribute("rank");
-
-  console.log(element.childNodes[1].getAttribute("rank"));
-  console.log(element.childNodes[3].getAttribute("country"));
-  console.log(element.childNodes[3].getAttribute("value"));
-  console.log(element.childNodes[3].getAttribute("rank"));
-
-  console.log("should say winner", element.getAttribute("team1"));
 
   const modal = document.getElementById("modal");
 
@@ -267,37 +255,49 @@ function openModal(element) {
   document.getElementById("modal-stadium").textContent =
     element.getAttribute("stadium");
 
-  if (team1_code != null && team2_code != null) {
+  if (team1_code != null) {
     document
       .getElementById("modal-team1")
       .setAttribute("src", "images/" + team1_code + ".png");
+  } else {
+    document
+      .getElementById("modal-team1")
+      .setAttribute("src", "images/placeholder_flag.png");
+  }
+
+  if (team2_code != null) {
     document
       .getElementById("modal-team2")
       .setAttribute("src", "images/" + team2_code + ".png");
   } else {
     document
-      .getElementById("modal-team1")
-      .setAttribute("src", "images/placeholder_flag.png");
-    document
       .getElementById("modal-team2")
       .setAttribute("src", "images/placeholder_flag.png");
   }
 
-  if (team1_name != null && team2_name != null) {
+  if (team1_name != null) {
     document.getElementById("modal-team1-name").textContent = team1_name;
-    document.getElementById("modal-team2-name").textContent = team2_name;
   } else {
     document.getElementById("modal-team1-name").textContent =
       element.getAttribute("team1");
+  }
+
+  if (team2_name != null) {
+    document.getElementById("modal-team2-name").textContent = team2_name;
+  } else {
     document.getElementById("modal-team2-name").textContent =
       element.getAttribute("team2");
   }
 
-  if (team1_rank != null && team2_rank != null) {
+  if (team1_rank != null) {
     document.getElementById("modal-team1-rank").textContent = team1_rank;
-    document.getElementById("modal-team2-rank").textContent = team2_rank;
   } else {
     document.getElementById("modal-team1-rank").textContent = "";
+  }
+
+  if (team2_rank != null) {
+    document.getElementById("modal-team2-rank").textContent = team2_rank;
+  } else {
     document.getElementById("modal-team2-rank").textContent = "";
   }
 
@@ -308,7 +308,6 @@ function openModal(element) {
 
 // grab every element with the class match-header
 var match_headers = document.querySelectorAll(".match-header");
-// console.log(match_headers);
 
 // apply a click event listener
 match_headers.forEach((e) => {
