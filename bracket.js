@@ -179,6 +179,9 @@ function highlightChosenTeam(matchid, option, nextMatchID, nextOption) {
   team_flag.classList.toggle("chosen");
 
   var winning_team_flag = team_flag.getAttribute("src");
+  var winning_team_name = team_flag.getAttribute("country");
+  var winning_team_rank = team_flag.getAttribute("rank");
+  var winning_team_value = team_flag.getAttribute("value");
   var losing_team_flag = not_chosen_flag.getAttribute("src");
   if (not_chosen_flag.classList.contains("chosen")) {
     not_chosen_flag.classList.remove("chosen");
@@ -187,6 +190,9 @@ function highlightChosenTeam(matchid, option, nextMatchID, nextOption) {
 
   var nextMatch = document.querySelector(`[matchid='${nextMatchID}']`);
   nextMatch.children[nextOption].setAttribute("src", winning_team_flag);
+  nextMatch.children[nextOption].setAttribute("country", winning_team_name); // add team's name
+  nextMatch.children[nextOption].setAttribute("rank", winning_team_rank); // add team's rank
+  nextMatch.children[nextOption].setAttribute("value", winning_team_value); // add team's value
 
   if (!team_flag.classList.contains("chosen")) {
     // find every other instance of the flag and change it to the default flag
