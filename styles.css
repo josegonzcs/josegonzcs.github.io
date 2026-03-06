@@ -20,6 +20,28 @@ header {
   margin-bottom: 20px;
 }
 
+@keyframes test {
+  50% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.logo {
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+/* 
+.logo:hover {
+  animation: test 2s ease-in-out;
+} */
+
+.heading:nth-child(1):hover {
+  animation: test 2s ease-in-out;
+}
+
 body {
   height: 100%;
   /* height: max-content; */
