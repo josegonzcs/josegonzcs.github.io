@@ -38,7 +38,9 @@ const rankings = await readCSV("/rankings_19Nov2025.csv");
 
 // Playoff Teams and Groups
 
-var playoff_teams = document.querySelectorAll(`[class = playoff-img]`);
+const default_chosen = document.querySelectorAll(".playoff-img.chosen");
+const other_teams = document.querySelectorAll(`[class = playoff-img]`);
+const playoff_teams = [...default_chosen, ...other_teams];
 
 playoff_teams.forEach((obj) => {
   obj.addEventListener("click", () => {

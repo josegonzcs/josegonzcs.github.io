@@ -261,7 +261,7 @@ svg:hover {
   /* border: solid white 2px; */
   visibility: visible;
   opacity: 90%;
-  transition: opacity 300ms ease-in-out 1300ms;
+  transition: opacity 300ms ease-in-out 750ms;
 }
 
 .ko-match {
