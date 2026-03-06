@@ -162,14 +162,15 @@ function populateBracket() {
   seedThirdPlaceTeams();
 }
 
-var btn = document.getElementById("populateBracket");
-btn.addEventListener("click", () => {
+var fill_btn = document.getElementById("populateBracket");
+
+fill_btn.addEventListener("click", () => {
   populateBracket();
+});
 
-  // document.querySelector(".groupstage-container").style.display = "none";
-  // document.getElementById("populateBracket").style.display = "none";
-
-  document.querySelector(".bracket").style.display = "flex";
+var clear_btn = document.getElementById("clearBracket");
+clear_btn.addEventListener("click", () => {
+  clearBracket();
 });
 
 function highlightChosenTeam(matchid, option, nextMatchID, nextOption) {

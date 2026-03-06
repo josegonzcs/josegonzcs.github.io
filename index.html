@@ -23,7 +23,6 @@
         style="
           cursor: pointer;
           width: max-content;
-          padding: 10px 0 10px 0;
           display: flex;
           align-items: center;
         "
@@ -81,7 +80,7 @@
             transform="rotate(-90 31.5 39.5)"
             fill="white"
             stroke="white"
-            />
+          />
           <rect
             x="15.5"
             y="49.5"
@@ -91,7 +90,7 @@
             transform="rotate(-90 15.5 49.5)"
             fill="white"
             stroke="white"
-            />
+          />
           <rect
             x="15.5"
             y="20.5"
@@ -131,7 +130,70 @@
             stroke="white"
           />
         </svg>
-        <div class="bleh">FIFA World Cup 2026 Predictor</div>
+
+        <div class="heading-title">2026 World Cup</div>
+
+        <svg
+          width="60"
+          height="60"
+          viewBox="0 0 421 935"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="logo"
+        >
+          <ellipse cx="210.5" cy="207.5" rx="210.5" ry="207.5" fill="#FAC517" />
+          <ellipse
+            cx="222"
+            cy="233.482"
+            rx="194.886"
+            ry="208.666"
+            transform="rotate(23.5365 222 233.482)"
+            fill="#E5B000"
+          />
+          <path
+            d="M262.642 616.682C263.123 614.616 265.146 613.289 267.118 614.072C270.155 615.278 274 617.662 274 622C274 720.671 297.021 806.347 303.387 828.149C304.16 830.798 302.108 833.414 299.35 833.332L217.651 830.896C215.125 830.82 213.301 828.451 213.875 825.99L262.642 616.682Z"
+            fill="#B48A00"
+          />
+          <path
+            d="M311.965 455.985L232.014 825.169L152 657L311.965 455.985Z"
+            fill="#FAC517"
+          />
+          <path d="M50 366L224 371.023V798H133L50 366Z" fill="#FAC517" />
+          <rect x="91" y="832" width="238" height="90" rx="10" fill="#3ABE42" />
+          <ellipse cx="224" cy="332.5" rx="64" ry="71.5" fill="#B48A00" />
+          <path
+            d="M368.5 267C410 206.5 294.686 439.884 294.686 439.884L200.105 382.071C200.105 382.071 286.907 385.949 368.5 267Z"
+            fill="#B48A00"
+          />
+          <path
+            d="M271.11 319.36C278.626 348.079 267.433 374.882 246.109 379.227C224.785 383.573 201.406 363.814 193.89 335.096C186.374 306.378 197.567 279.575 218.891 275.229C240.215 270.884 263.594 290.642 271.11 319.36Z"
+            fill="#EFDB6E"
+          />
+          <rect
+            x="114"
+            y="788"
+            width="201"
+            height="44"
+            rx="10"
+            fill="#238F2A"
+          />
+          <path
+            d="M20.9534 291.5C20.9534 291.5 61.5946 371.925 83.5 353C61.5946 371.925 105.405 334.075 83.5 353C104.919 334.495 98.3525 314 98.3525 314L127.56 330.5C127.56 330.5 127.5 403.5 93 401.5C58.5 399.5 9.75734 314 9.75734 314L20.9534 291.5Z"
+            fill="#B48A00"
+          />
+          <path
+            d="M131.483 788C131.483 788 211.927 623.611 172.587 507C147.492 432.616 113.484 356 113.484 356C113.484 356 64.005 237 86.4836 237C126.278 237 160.225 397.5 248.983 397.5C320.5 397.5 370.483 226.132 406.483 237C442.483 247.868 326.95 486.294 305.983 533C231.497 698.925 189.983 788 189.983 788L131.483 788Z"
+            fill="#EFDB6E"
+          />
+          <path
+            d="M0.000976562 327.001C81.8747 375.208 141 513.467 141 676.507C141 777.167 118.462 868.382 81.9482 934.79L0.000976562 327.001Z"
+            fill="black"
+          />
+          <path
+            d="M331.55 916.118C298.228 852.439 278 768.714 278 677H398.928L331.55 916.118Z"
+            fill="black"
+          />
+        </svg>
       </div>
     </header>
     <div class="world-cup">
@@ -392,7 +454,9 @@
         </div>
       </div>
 
-      <button id="continue" style="display: flex">CONTINUE</button>
+      <button id="continue" style="display: flex; margin-top: 10px" class="btn">
+        CONTINUE
+      </button>
 
       <div class="groupstage-container" style="display: none">
         <div class="groupstage-container-rows">
@@ -751,7 +815,15 @@
         </div>
       </div>
 
-      <button id="populateBracket" style="display: none">CONTINUE</button>
+      <div style="display: flex; flex-direction: row">
+        <button id="populateBracket" style="display: none" class="btn">
+          Fill
+        </button>
+        <div style="width: 10px">&nbsp;</div>
+        <button id="clearBracket" style="display: none" class="btn">
+          Clear
+        </button>
+      </div>
 
       <div class="bracket" style="display: none">
         <div class="round-of-32 knockout-round">

@@ -229,6 +229,7 @@ continue_button.addEventListener("click", () => {
 
   document.querySelector(".groupstage-container").style.display = "flex";
   document.getElementById("populateBracket").style.display = "flex";
+  document.getElementById("clearBracket").style.display = "flex";
   document.querySelector(".bracket").style.display = "flex";
 });
 
@@ -257,18 +258,13 @@ function setImages() {
 
   var tooltips = document.querySelectorAll(".tooltip");
   tooltips.forEach((tooltip) => {
-    var name = document.createElement("span");
     var rank = document.createElement("span");
-    name.textContent =
-      tooltip.previousElementSibling.previousElementSibling.getAttribute(
-        "country",
-      );
+
     rank.textContent =
       "Rank: " +
       tooltip.previousElementSibling.previousElementSibling.getAttribute(
         "rank",
       );
-    tooltip.appendChild(name);
     tooltip.appendChild(rank);
   });
 }

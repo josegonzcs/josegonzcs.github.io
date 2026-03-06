@@ -95,3 +95,17 @@ function getDragAfterElement(group, y) {
     { offset: Number.NEGATIVE_INFINITY },
   ).element;
 }
+
+const nav = document.getElementsByClassName("heading")[0];
+const logo_1 = document.getElementsByClassName("logo")[0];
+const logo_2 = document.getElementsByClassName("logo")[1];
+nav.addEventListener("mouseenter", () => {
+  if (!logo_1.classList.contains("play")) {
+    logo_1.classList.add("play");
+    logo_2.classList.add("play");
+    setTimeout(() => {
+      logo_1.classList.remove("play");
+      logo_2.classList.remove("play");
+    }, 750);
+  }
+});
