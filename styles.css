@@ -29,18 +29,10 @@ header {
   }
 }
 
-.logo {
-  animation-duration: 1s;
-  animation-iteration-count: 1;
-}
-/* 
-.logo:hover {
+.heading:hover > :first-child {
   animation: test 2s ease-in-out;
-} */
+}
 
-.heading:nth-child(1):hover {
-  animation: test 2s ease-in-out;
-}
 
 body {
   height: 100%;
