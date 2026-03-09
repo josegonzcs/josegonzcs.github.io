@@ -199,7 +199,7 @@
     <div class="world-cup">
       <div id="modal-container" class="modal-container" style="display: none">
         <div id="modal" class="modal" style="flex-direction: column">
-          <div style="text-align: center">
+          <div style="text-align: center; margin-bottom: 5px">
             <h1 id="modal-round">Round</h1>
             <h3 id="modal-matchid">Match id</h3>
             <h3 id="modal-date">Date</h3>
@@ -817,11 +817,11 @@
 
       <div style="display: flex; flex-direction: row">
         <button id="populateBracket" style="display: none" class="btn">
-          Fill
+          FILL
         </button>
         <div style="width: 10px">&nbsp;</div>
         <button id="clearBracket" style="display: none" class="btn">
-          Clear
+          CLEAR
         </button>
       </div>
 
@@ -1229,7 +1229,8 @@
               team1="Winner of Match 97"
               team2="Winner of Match 98"
               class="box"
-              nextMatch="103"
+              nextMatch="104"
+              losersnextmatch="103"
               nextOption="0"
             >
               <img
@@ -1248,9 +1249,9 @@
 
         <div class="finals knockout-round">
           <div class="ko-match">
-            <div class="match-header">Final</div>
+            <div class="match-header">Champion</div>
             <div
-              matchid="103"
+              matchid="1000"
               round="Finals"
               date="19 July"
               time="3:00pm ET"
@@ -1261,12 +1262,57 @@
             >
               <img
                 id="option1"
+                class="small-flag end"
+                src="images/placeholder_flag.png"
+              />
+            </div>
+          </div>
+          <div class="ko-match">
+            <div class="match-header">Final</div>
+            <div
+              matchid="104"
+              round="Finals"
+              date="19 July"
+              time="3:00pm ET"
+              stadium="New York New Jersey"
+              team1="Winner of Match 97"
+              team2="Winner of Match 98"
+              class="box"
+              nextMatch="1000"
+              nextOption="0"
+            >
+              <img
+                id="option1"
                 class="small-flag"
                 src="images/placeholder_flag.png"
               />
               <img
                 id="option2"
                 class="small-flag"
+                src="images/placeholder_flag.png"
+              />
+            </div>
+          </div>
+          <div class="ko-match">
+            <div class="match-header">Bronze Final</div>
+            <div
+              matchid="103"
+              round="Bronze Final"
+              date="18 July"
+              time="5:00pm ET"
+              stadium="Miami"
+              team1="Loser of Match 101"
+              team2="Loser of Match 102"
+              class="box"
+            >
+              <img
+                id="option1"
+                class="small-flag end"
+                src="images/placeholder_flag.png"
+              />
+              <img
+                id="option2"
+                class="small-flag end"
                 src="images/placeholder_flag.png"
               />
             </div>
@@ -1285,7 +1331,8 @@
               team1="Winner of Match 99"
               team2="Winner of Match 100"
               class="box"
-              nextMatch="103"
+              nextMatch="104"
+              losersnextmatch="103"
               nextOption="1"
             >
               <img

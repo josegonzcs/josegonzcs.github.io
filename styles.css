@@ -349,6 +349,7 @@ svg:hover {
     background-color: rgb(34, 34, 34);
     border: solid 1px rgb(255, 255, 255, 0.8);
     color: rgb(255, 255, 255, 0.8);
+    border-radius: 3px;
   }
 
   .btn:hover {

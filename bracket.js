@@ -184,9 +184,44 @@ function highlightChosenTeam(matchid, option, nextMatchID, nextOption) {
   var winning_team_rank = team_flag.getAttribute("rank");
   var winning_team_value = team_flag.getAttribute("value");
   var losing_team_flag = not_chosen_flag.getAttribute("src");
+  var losing_team_name = not_chosen_flag.getAttribute("country");
+  var losing_team_rank = not_chosen_flag.getAttribute("rank");
+  var losing_team_value = not_chosen_flag.getAttribute("value");
   if (not_chosen_flag.classList.contains("chosen")) {
     not_chosen_flag.classList.remove("chosen");
     removeFlag(matchid, losing_team_flag);
+  }
+
+  if (matchid == 101 || matchid == 102) {
+    var losersNextMatchID = team.getAttribute("losersnextmatch");
+
+    var losersNextMatch = document.querySelector(
+      `[matchid='${losersNextMatchID}']`,
+    );
+
+    if (losing_team_flag != "images/placeholder_flag.png") {
+      losersNextMatch.children[nextOption].setAttribute(
+        "src",
+        losing_team_flag,
+      );
+      losersNextMatch.children[nextOption].setAttribute(
+        "country",
+        losing_team_name,
+      );
+      losersNextMatch.children[nextOption].setAttribute(
+        "rank",
+        losing_team_rank,
+      );
+      losersNextMatch.children[nextOption].setAttribute(
+        "value",
+        losing_team_value,
+      );
+    }
+
+    if (!team_flag.classList.contains("chosen")) {
+      // find every other instance of the flag and change it to the default flag
+      removeFlag(matchid, winning_team_flag);
+    }
   }
 
   var nextMatch = document.querySelector(`[matchid='${nextMatchID}']`);
@@ -204,7 +239,8 @@ function highlightChosenTeam(matchid, option, nextMatchID, nextOption) {
   }
 }
 
-var bracket_teams = document.querySelectorAll(".small-flag");
+var bracket_teams = document.querySelectorAll(".small-flag:not(.end)");
+console.log(bracket_teams);
 
 bracket_teams.forEach((team) => {
   var m = team.parentNode.getAttribute("matchid");
