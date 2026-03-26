@@ -216,6 +216,11 @@ svg:hover {
   opacity: 66%;
 }
 
+.eliminated{
+  text-decoration: line-through;
+  opacity: 33%;
+}
+
 .chosen {
   border: 4px solid green;
   opacity: 100%;
