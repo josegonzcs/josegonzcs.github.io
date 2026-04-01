@@ -135,6 +135,7 @@ svg:hover {
   top: 0;
   left: 0;
   background: rgb(60, 60, 60, 0.6);
+  z-index: 9999;
 }
 
 .modal {
