@@ -34,7 +34,7 @@ function parseCSVData(data) {
   return lines;
 }
 
-const rankings = await readCSV("/rankings_19Nov2025.csv");
+const rankings = await readCSV("/rankings_1April2026.csv");
 
 // Playoff Teams and Groups
 

@@ -2,7 +2,7 @@
 #| STEPS TO RUN WITH NEW FIFA RANKINGS |
 #----------------------------------------
 
-# COPY RANKINGS FROM fotmob.com/fifaranking?gender=men IN A .TXT FILE
+# COPY RANKINGS FROM fotmob.com/fifaranking?gender=men IN A .TXT FILE NAMED 'ranking.txt'
 
 file = open("rankings.txt", "r") 
 
@@ -19,7 +19,7 @@ for line in file:
 
 file.close()
 
-old = open("rankings_17Oct2025.csv", "r") # RENAME TO LAST RANKINGS FILE
+old = open("rankings_19Nov2025.csv", "r") # RENAME TO LAST RANKINGS FILE
 
 old_rankings = []
 

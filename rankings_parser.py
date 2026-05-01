@@ -1,6 +1,6 @@
 import re
 
-file = open("rankings_18Sept2025.txt", "r") # UPDATE TO LATEST RANKINGS
+file = open("rankings_1April2026.txt", "r") # UPDATE TO LATEST RANKINGS
 
 rankings = []
 
