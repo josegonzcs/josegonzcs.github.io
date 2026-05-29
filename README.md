@@ -1,7 +1,8 @@
-## 2026 World Cup Predictor
+## 2026 World Cup Simulator
 
-Currently organizing qualified and playoff teams.
+Simulate the 2026 World Cup. Rearrange group order, third placed teams and predict who will advance in the knockout stage.
 
-Group Winners and Group Runner-Ups are current.
-
-Playoff Teams are decided by FIFA rankings, keep in mind upsets happen in football. GO UNDERDOGS!
+#### _Tips_
+ > - Drag and Drop teams to rearrange their order in their groups.
+ > - Hover over a team in the group stage to show their FIFA rankings (updated April 1, 2026).
+ > - Click on a Knockout Match Header to get more information of the match.
