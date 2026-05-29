@@ -240,7 +240,6 @@ function highlightChosenTeam(matchid, option, nextMatchID, nextOption) {
 }
 
 var bracket_teams = document.querySelectorAll(".small-flag:not(.end)");
-console.log(bracket_teams);
 
 bracket_teams.forEach((team) => {
   var m = team.parentNode.getAttribute("matchid");
