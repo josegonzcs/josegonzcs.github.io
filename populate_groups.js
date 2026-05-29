@@ -38,19 +38,19 @@ const rankings = await readCSV("/rankings_1April2026.csv");
 
 // Playoff Teams and Groups
 
-const default_chosen = document.querySelectorAll(".playoff-img.chosen");
-const other_teams = document.querySelectorAll(`[class = playoff-img]`);
-const playoff_teams = [...default_chosen, ...other_teams];
+// const default_chosen = document.querySelectorAll(".playoff-img.chosen");
+// const other_teams = document.querySelectorAll(`[class = playoff-img]`);
+// const playoff_teams = [...default_chosen, ...other_teams];
 
-playoff_teams.forEach((obj) => {
-  obj.addEventListener("click", () => {
-    var path = obj.parentElement.parentElement.children;
-    for (var i = 0; i < path.length; i += 1) {
-      path[i].children[0].classList.remove("chosen");
-    }
-    obj.classList.toggle("chosen");
-  });
-});
+// playoff_teams.forEach((obj) => {
+//   obj.addEventListener("click", () => {
+//     var path = obj.parentElement.parentElement.children;
+//     for (var i = 0; i < path.length; i += 1) {
+//       path[i].children[0].classList.remove("chosen");
+//     }
+//     obj.classList.toggle("chosen");
+//   });
+// });
 
 var uefa_a; // Italy, Northern Ireland, Wales, Bosnia and Herzegovina
 var uefa_b; // Ukraine, Sweden, Poland, Albania
@@ -68,17 +68,17 @@ var predicted_playoff_teams = [
   inter_2,
 ];
 
-var group_A = ["Mexico", "South Africa", "South Korea", uefa_d];
-var group_B = ["Canada", uefa_a, "Qatar", "Switzerland"];
+var group_A = ["Mexico", "South Africa", "South Korea", "Czechia"];
+var group_B = ["Canada", "Bosnia and Herzegovina", "Qatar", "Switzerland"];
 var group_C = ["Brazil", "Morocco", "Haiti", "Scotland"];
-var group_D = ["USA", "Paraguay", "Australia", uefa_c];
+var group_D = ["USA", "Paraguay", "Australia", "Turkiye"];
 var group_E = ["Germany", "Curacao", "Ivory Coast", "Ecuador"];
-var group_F = ["Netherlands", "Japan", uefa_b, "Tunisia"];
+var group_F = ["Netherlands", "Japan", "Sweden", "Tunisia"];
 var group_G = ["Belgium", "Egypt", "Iran", "New Zealand"];
 var group_H = ["Spain", "Cape Verde", "Saudi Arabia", "Uruguay"];
-var group_I = ["France", "Senegal", inter_2, "Norway"];
+var group_I = ["France", "Senegal", "Iraq", "Norway"];
 var group_J = ["Argentina", "Algeria", "Austria", "Jordan"];
-var group_K = ["Portugal", inter_1, "Uzbekistan", "Colombia"];
+var group_K = ["Portugal", "DR Congo", "Uzbekistan", "Colombia"];
 var group_L = ["England", "Croatia", "Panama", "Ghana"];
 
 var groups = [
@@ -167,10 +167,10 @@ function updateGroups() {
       var element = group_element.children[jx];
       var team_code = groups[ix][jx][1];
       var country = groups[ix][jx][0];
-      // console.log(team_code);
-      element.children[0].textContent = country;
+      console.log(element);
       element.children[0].setAttribute("value", team_code);
       element.children[0].setAttribute("country", country);
+      element.children[0].textContent = country;
       element.children[0].setAttribute("rank", groups[ix][jx][2]);
       element.children[0].setAttribute("group", element.getAttribute("id"));
     }
@@ -204,36 +204,48 @@ function addTeamInfo() {
       groups[group_index][team_index] = [team_name, team_code, ranking];
     }
   }
-  // console.log(groups);
+  console.log(groups);
 
   updateGroups();
 }
 
-var continue_button = document.getElementById("continue");
+// var continue_button = document.getElementById("continue");
 
-continue_button.addEventListener("click", () => {
-  var chosen_playoff_teams = document.getElementsByClassName("chosen");
-  if (chosen_playoff_teams.length < 6) {
-    return;
-  }
-  group_B[1] = chosen_playoff_teams[0].name;
-  group_F[2] = chosen_playoff_teams[1].name;
-  group_D[3] = chosen_playoff_teams[2].name;
-  group_A[3] = chosen_playoff_teams[3].name;
-  group_K[1] = chosen_playoff_teams[4].name;
-  group_I[2] = chosen_playoff_teams[5].name;
+// continue_button.addEventListener("click", () => {
+//   var chosen_playoff_teams = document.getElementsByClassName("chosen");
+//   if (chosen_playoff_teams.length < 6) {
+//     return;
+//   }
+//   group_B[1] = chosen_playoff_teams[0].name;
+//   group_F[2] = chosen_playoff_teams[1].name;
+//   group_D[3] = chosen_playoff_teams[2].name;
+//   group_A[3] = chosen_playoff_teams[3].name;
+//   group_K[1] = chosen_playoff_teams[4].name;
+//   group_I[2] = chosen_playoff_teams[5].name;
 
-  addTeamInfo();
-  //call function that adds team codes to every group
-  // same function calls to update group elements and
-  document.querySelector(".playoff-matches").style.display = "none";
-  document.getElementById("continue").style.display = "none";
+//   addTeamInfo();
+//   //call function that adds team codes to every group
+//   // same function calls to update group elements and
+//   document.querySelector(".playoff-matches").style.display = "none";
+//   document.getElementById("continue").style.display = "none";
 
-  document.querySelector(".groupstage-container").style.display = "flex";
-  document.getElementById("populateBracket").style.display = "flex";
-  document.getElementById("clearBracket").style.display = "flex";
-  document.querySelector(".bracket").style.display = "flex";
-});
+//   document.querySelector(".groupstage-container").style.display = "flex";
+//   document.getElementById("populateBracket").style.display = "flex";
+//   document.getElementById("clearBracket").style.display = "flex";
+//   document.querySelector(".bracket").style.display = "flex";
+// });
+  
+addTeamInfo();
+//call function that adds team codes to every group
+// same function calls to update group elements and
+document.querySelector(".playoff-matches").style.display = "none";
+document.getElementById("continue").style.display = "none";
+
+document.querySelector(".groupstage-container").style.display = "flex";
+document.getElementById("populateBracket").style.display = "flex";
+document.getElementById("clearBracket").style.display = "flex";
+document.querySelector(".bracket").style.display = "flex";
+
 
 function setImages() {
   var flags = document.querySelectorAll(".flag");

@@ -74,10 +74,6 @@ teams.forEach((team) => {
   });
 });
 
-codes.forEach((code) => {
-  code.textContent = code.getAttribute("value");
-});
-
 function getDragAfterElement(group, y) {
   const otherTeams = [...group.querySelectorAll(".team:not(.dragging)")];
 
