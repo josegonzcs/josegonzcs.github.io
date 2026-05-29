@@ -206,44 +206,6 @@ function addTeamInfo() {
   updateGroups();
 }
 
-// var continue_button = document.getElementById("continue");
-
-// continue_button.addEventListener("click", () => {
-//   var chosen_playoff_teams = document.getElementsByClassName("chosen");
-//   if (chosen_playoff_teams.length < 6) {
-//     return;
-//   }
-//   group_B[1] = chosen_playoff_teams[0].name;
-//   group_F[2] = chosen_playoff_teams[1].name;
-//   group_D[3] = chosen_playoff_teams[2].name;
-//   group_A[3] = chosen_playoff_teams[3].name;
-//   group_K[1] = chosen_playoff_teams[4].name;
-//   group_I[2] = chosen_playoff_teams[5].name;
-
-//   addTeamInfo();
-//   //call function that adds team codes to every group
-//   // same function calls to update group elements and
-//   document.querySelector(".playoff-matches").style.display = "none";
-//   document.getElementById("continue").style.display = "none";
-
-//   document.querySelector(".groupstage-container").style.display = "flex";
-//   document.getElementById("populateBracket").style.display = "flex";
-//   document.getElementById("clearBracket").style.display = "flex";
-//   document.querySelector(".bracket").style.display = "flex";
-// });
-  
-addTeamInfo();
-//call function that adds team codes to every group
-// same function calls to update group elements and
-document.querySelector(".playoff-matches").style.display = "none";
-document.getElementById("continue").style.display = "none";
-
-document.querySelector(".groupstage-container").style.display = "flex";
-document.getElementById("populateBracket").style.display = "flex";
-document.getElementById("clearBracket").style.display = "flex";
-document.querySelector(".bracket").style.display = "flex";
-
-
 function setImages() {
   var flags = document.querySelectorAll(".flag");
 
