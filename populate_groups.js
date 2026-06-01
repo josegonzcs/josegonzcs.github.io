@@ -241,3 +241,5 @@ function setImages() {
     tooltip.appendChild(rank);
   });
 }
+
+addTeamInfo();
